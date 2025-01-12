@@ -44,6 +44,7 @@ function shuffleArray(array) {
 
 function displayQuestion() {
   const questionElement = document.getElementById('question');
+  const codeSnippetElement = document.getElementById('code-snippet');
   const optionsElement = document.getElementById('options');
   const feedbackElement = document.createElement('div');
   const nextButton = document.getElementById('next-button');
@@ -64,6 +65,14 @@ function displayQuestion() {
   questionElement.textContent = question.question;
   optionsElement.innerHTML = '';
 
+  if (question.code_snippet) {
+    codeSnippetElement.classList.remove('hidden');
+    codeSnippetElement.textContent = question.code_snippet;
+  } else {
+    codeSnippetElement.classList.add('hidden');
+    codeSnippetElement.textContent = '';
+  }
+  
   options.forEach((option, newIndex) => {
     const button = document.createElement('button');
     button.textContent = option;
@@ -126,39 +135,3 @@ function restartQuiz() {
   document.getElementById('result').classList.add('hidden');
   document.getElementById('home').classList.remove('hidden');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const style = document.createElement('style');
-  style.textContent = `
-    .option-button {
-      background-color: white;
-      color: black;
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .option-button:hover {
-      background-color: lightgray;
-    }
-    .option-button.selected {
-      background-color: gray;
-      color: white;
-    }
-    .option-button.correct {
-      background-color: green;
-      color: white;
-    }
-    .option-button.wrong {
-      background-color: red;
-      color: white;
-    }
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  `;
-  document.head.appendChild(style);
-});

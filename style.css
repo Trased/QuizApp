@@ -92,4 +92,25 @@ body {
   #score-display strong {
     font-weight: bold;
   }
+
+  #code-snippet {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 20%;
+    background-color: #f4f4f4;
+    border-left: 5px solid #007bff;
+    border-right: 5px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    white-space: pre-wrap; 
+    text-align: center;
+    color: #333;
+    overflow-x: auto;
+  }
+  
+  #code-snippet.hidden {
+    display: none;
+  }
   
