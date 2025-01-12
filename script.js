@@ -46,7 +46,10 @@ function displayQuestion() {
   const questionElement = document.getElementById('question');
   const optionsElement = document.getElementById('options');
   const feedbackElement = document.createElement('div');
+  const nextButton = document.getElementById('next-button');
   feedbackElement.id = 'feedback';
+
+  nextButton.classList.add('hidden');
 
   const randomIndex = Math.floor(Math.random() * questions.length);
   const question = questions[randomIndex];
@@ -91,12 +94,16 @@ function handleAnswer(isCorrect, button, feedbackElement) {
 
   document.getElementById('score_current').innerHTML = `Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong>`;
 
-  currentQuestion++;
-  if (currentQuestion < maxQuestions) {
-    setTimeout(displayQuestion, 1000);
-  } else {
-    showResults();
-  }
+  const nextButton = document.getElementById('next-button');
+  nextButton.classList.remove('hidden');
+  nextButton.onclick = () => {
+    currentQuestion++;
+    if (currentQuestion < maxQuestions) {
+      displayQuestion();
+    } else {
+      showResults();
+    }
+  };
 }
 
 function showResults() {
