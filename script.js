@@ -54,17 +54,23 @@ function displayQuestion() {
   const randomIndex = Math.floor(Math.random() * questions.length);
   const question = questions[randomIndex];
 
-  const options = question.options.map((option, index) => ({ option, index }));
+  const correctAnswerValue = question.options[question.answer];
+
+  const options = [...question.options];
   shuffleArray(options);
+
+  const correctIndexAfterShuffle = options.indexOf(correctAnswerValue);
 
   questionElement.textContent = question.question;
   optionsElement.innerHTML = '';
 
-  options.forEach(({ option, index }) => {
+  options.forEach((option, newIndex) => {
     const button = document.createElement('button');
     button.textContent = option;
     button.classList.add('option-button');
-    button.addEventListener('click', () => handleAnswer(index === question.answer, button, feedbackElement));
+    button.addEventListener('click', () =>
+      handleAnswer(newIndex === correctIndexAfterShuffle, button, feedbackElement, correctIndexAfterShuffle)
+    );
     optionsElement.appendChild(button);
   });
 
@@ -73,7 +79,7 @@ function displayQuestion() {
   }
 }
 
-function handleAnswer(isCorrect, button, feedbackElement) {
+function handleAnswer(isCorrect, button, feedbackElement, index) {
   const allOptions = document.querySelectorAll('.option-button');
   allOptions.forEach((btn) => btn.disabled = true);
 
@@ -88,8 +94,7 @@ function handleAnswer(isCorrect, button, feedbackElement) {
     feedbackElement.textContent = 'Wrong! The correct answer was highlighted.';
     feedbackElement.style.color = 'red';
 
-    const correctIndex = questions[currentQuestion].answer;
-    allOptions[correctIndex].classList.add('correct');
+    allOptions[index].classList.add('correct');
   }
 
   document.getElementById('score_current').innerHTML = `Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong>`;
