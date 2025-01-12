@@ -1,17 +1,25 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
   }
   
-  .screen {
+  h1, h2 {
+    color: #333;
+  }
+  
+  .hidden {
     display: none;
   }
   
+  /* Screen Styling */
   .screen.active {
     display: block;
+    flex-direction: column;
   }
   
+  /* Button Styling */
   button {
     padding: 10px 20px;
     margin: 10px;
@@ -26,11 +34,62 @@ body {
     background-color: #0056b3;
   }
   
-  .hidden {
-    display: none;
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
   
-  h1, h2 {
+  /* Options Container */
+  #options {
+    display: flex;
+    flex-direction: column; /* Stack options vertically */
+    align-items: center;    /* Center the options */
+    gap: 10px;              /* Add spacing between buttons */
+  }
+  
+  /* Option Buttons */
+  .option-button {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;             /* Buttons stretch to fill most of the container */
+    max-width: 400px;       /* Cap button width for larger screens */
+    text-align: center;
+    word-wrap: break-word;  /* Wrap long text */
+    overflow-wrap: anywhere;
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+  
+  .option-button:hover {
+    background-color: lightgray;
+  }
+  
+  .option-button.correct {
+    background-color: green;
+    color: white;
+  }
+  
+  .option-button.wrong {
+    background-color: red;
+    color: white;
+  }
+  
+  /* Score Display Styling */
+  #score-display {
+    margin-top: 20px;
+    font-size: 18px;
     color: #333;
+  }
+  
+  #score-display p {
+    margin: 0;
+  }
+  
+  #score-display strong {
+    font-weight: bold;
   }
   

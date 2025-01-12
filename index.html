@@ -8,20 +8,30 @@
 </head>
 <body>
   <div id="app">
+    <!-- Home Screen -->
     <div id="home" class="screen">
       <h1>Welcome to the Quiz App</h1>
+      <p>Test your knowledge by answering quiz questions!</p>
       <button id="start-button">Start Quiz</button>
     </div>
-    <div id="quiz" class="screen hidden">
+
+    <!-- Quiz Screen -->
+    <div id="quiz" class="screen hidden"> 
       <h2 id="question">Question</h2>
       <div id="options"></div>
-      <button id="next-button" class="hidden">Next</button>
+      <div id="score-display"> 
+        <p id="score_current">Correct: <strong>0</strong>, Wrong: <strong>0</strong></p>
+      </div>
     </div>
+
+    <!-- Result Screen -->
     <div id="result" class="screen hidden">
-      <h1>Your Score: <span id="score">0</span></h1>
+      <h1>Quiz Results</h1>
+      <p id="score_final">Final Score: Correct: <strong>0</strong>, Wrong: <strong>0</strong></p>
       <button id="restart-button">Restart Quiz</button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
