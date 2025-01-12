@@ -29,7 +29,14 @@ A responsive and interactive quiz application built with HTML, CSS, and JavaScri
    cd quiz-app
    ```
 
-3. Open the `index.html` file in your browser.
+3. Launch a live server using Visual Studio Code Live Server:
+
+    1. Open the project folder in Visual Studio Code.
+    2. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension if not already installed.
+    3. Right-click on index.html (or your main file) and select Open with Live Server.
+    4. Your application will now be accessible in the browser.
+
+**NOTE**: Current implementation of the application can be tested accesing [Github page](https://trased.github.io/QuizApp/);
 
 ## Project Structure
 
