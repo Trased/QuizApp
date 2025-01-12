@@ -59,6 +59,7 @@ quiz-app/
    [
      {
        "question": "What does HTML stand for?",
+       "code_snippet": "Example of usage",
        "options": [
          "Hyper Text Markup Language",
          "High Text Machine Language",
@@ -71,6 +72,7 @@ quiz-app/
    ```
    - `question`: The question text.
    - `options`: An array of answer choices.
+   - `code_snippet`: An optional tag if your question requires code snippets.
    - `answer`: The index of the correct answer in the `options` array (0-based).
 
 ### Styling
