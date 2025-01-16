@@ -48,6 +48,10 @@ function displayQuestion() {
   const optionsElement = document.getElementById('options');
   const feedbackElement = document.createElement('div');
   const nextButton = document.getElementById('next-button');
+  const explanationElement = document.getElementById('explanation-display');
+
+  explanationElement.classList.add('hidden');
+
   feedbackElement.id = 'feedback';
 
   nextButton.classList.add('hidden');
@@ -107,7 +111,7 @@ function handleAnswer(isCorrect, button, feedbackElement, index, question) {
 
     allOptions[index].classList.add('correct');
   }
-  
+
   explanationElement.textContent = `${question.explanation}`;
   explanationElement.classList.remove('hidden');
 
