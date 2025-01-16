@@ -7,7 +7,8 @@
             "JNDI, JMS, JSON",
             "Tomcat, GlassFish, WildFly"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Servlets, JSP, and Java Beans are considered classical web components in Java as they form the core of building dynamic web applications. Servlets handle HTTP requests and responses, JSP is used for embedding Java code in HTML, and Java Beans are reusable software components for encapsulating business logic. The other options include unrelated or higher-level technologies."
     },
     {
         "question": "What is the main purpose of Java Server Pages (JSP)?",
@@ -17,7 +18,8 @@
             "To handle HTTP requests and responses",
             "To replace JavaScript on the client side"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The main purpose of Java Server Pages (JSP) is to simplify the creation of dynamic web pages by allowing developers to embed Java code directly into HTML. JSP is designed for server-side rendering of content, enabling dynamic data presentation and integration with backend systems. It does not handle application configurations, HTTP requests, or replace JavaScript, which is primarily a client-side language."
     },
     {
         "question": "What type of content can JSP pages contain?",
@@ -27,7 +29,8 @@
             "Static and dynamic content",
             "Only JavaScript code"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "JSP pages can contain both static and dynamic content. Static content, such as HTML, CSS, or JavaScript, is rendered as-is, while dynamic content is generated on the server using Java code embedded in the JSP. This flexibility allows JSP to build complex, data-driven web pages. It is not limited to only static or dynamic content, nor is it restricted to JavaScript."
     },
     {
         "question": "Which of the following statements about JSP lifecycle is true?",
@@ -37,7 +40,8 @@
             "JSP pages do not require a servlet container to run.",
             "JSP pages must be written in XML format."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Every JSP page is compiled into a servlet before execution. This is a key feature of the JSP lifecycle. When a JSP page is requested for the first time, it is translated into a servlet, compiled, and then executed. JSP pages are not directly interpreted by the web server, require a servlet container to run, and do not need to be written in XML format."
     },
     {
         "question": "What is the purpose of the <% ... %> scriptlet tag in JSP?",
@@ -47,18 +51,19 @@
             "To define JSP page directives",
             "To include other JSP pages dynamically"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<% ... %>` scriptlet tag in JSP is used to execute Java code within the page. Any code inside this tag is embedded into the servlet's `service()` method when the JSP is compiled. It is not used for static content, directives, or dynamic inclusion of other JSP pages, which are handled by other JSP tags or constructs."
     },
     {
         "question": "Which of the following JSP tags is used to declare variables or methods in a page?",
-        "code_snippet": "<%! int counter = 0; %>",
         "options": [
             "<% ... %>",
             "<%= ... %>",
             "<%! ... %>",
             "<%@ ... %>"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `<%! ... %>` tag in JSP is used to declare variables or methods at the class level within the generated servlet. This allows you to define reusable components, such as fields or helper methods, that are available throughout the JSP page. Other tags like `<% ... %>` execute code inside the `service()` method, `<%= ... %>` outputs expressions, and `<%@ ... %>` is used for directives."
     },
     {
         "question": "What is the role of the <jsp:useBean> tag in JSP?",
@@ -68,18 +73,20 @@
             "To include another JSP page",
             "To manage HTTP sessions"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<jsp:useBean>` tag in JSP is used to create or access a JavaBean instance within the page. It allows you to instantiate a bean, bind it to a scope (such as `page`, `request`, `session`, or `application`), and interact with its properties. This tag is not used to define new Java classes, include other JSP pages, or manage HTTP sessions."
     },
     {
         "question": "Which tag is used to include another resource (like a JSP or HTML file) in a JSP page?",
-        "code_snippet": "<jsp:include page=\"header.jsp\"/>",
+        "code_snippet": "<jsp: .... page=\"header.jsp\"/>",
         "options": [
             "<jsp:useBean>",
             "<jsp:forward>",
             "<jsp:include>",
             "<jsp:import>"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `<jsp:include>` tag in JSP is used to include another resource, such as a JSP or HTML file, at runtime. It ensures that the content of the included file is dynamically included every time the parent JSP page is requested. It is commonly used for reusable components like headers or footers. Other tags like `<jsp:useBean>` create or access JavaBeans, `<jsp:forward>` redirects to another resource, and `<jsp:import>` is not a valid JSP tag."
     },
     {
         "question": "What does the <c:forEach> tag from JSTL do?",
@@ -89,7 +96,8 @@
             "Handles conditional rendering based on a test",
             "Formats numbers and dates for internationalization"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `<c:forEach>` tag from the JSTL (JavaServer Pages Standard Tag Library) is used to define a loop for iterating over a collection of items, such as a list, array, or map. It simplifies repetitive tasks in JSP by enabling iteration without needing embedded Java code. Other functionalities, such as importing resources, handling conditions, or formatting numbers and dates, are performed by different JSTL tags."
     },
     {
         "question": "What is the purpose of the Expression Language (EL) in JSP?",
@@ -99,7 +107,8 @@
             "To access application data using a simpler syntax",
             "To format date and time values"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The purpose of the Expression Language (EL) in JSP is to access application data, such as attributes stored in scopes (e.g., request, session, application), using a simpler and more concise syntax. EL eliminates the need for complex Java code in JSP pages, allowing easy evaluation of expressions, variable references, and logical operations. It is not used for directly executing Java code or exclusively formatting date and time values."
     },
     {
         "question": "What is a benefit of using JSTL (Java Standard Tag Library) in JSP?",
@@ -109,18 +118,20 @@
             "Encapsulates common functionalities in reusable tags",
             "Replaces the use of XML in web applications"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The Java Standard Tag Library (JSTL) provides a set of reusable tags that encapsulate common functionalities such as iteration, conditional rendering, and internationalization. This simplifies JSP development by reducing the need for Java code in the page, promoting cleaner and more maintainable code. While JSTL improves JSP pages, it does not eliminate servlets or replace XML usage in web applications."
     },
     {
         "question": "Which JSP directive is used to import Java classes into a page?",
-        "code_snippet": "<%@ page import=\"java.util.Date\" %>",
+        "code_snippet": "<%@ ... import=\"java.util.Date\" %>",
         "options": [
             "<%@ include %>",
             "<%@ import %>",
             "<%@ page %>",
             "<%@ taglib %>"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `<%@ page %>` directive in JSP is used to set page-level instructions, including importing Java classes. The `import` attribute allows you to include Java classes in the JSP page, enabling the use of these classes in the page's logic. Other directives, such as `<%@ include %>` for including files and `<%@ taglib %>` for defining tag libraries, serve different purposes."
     },
     {
         "question": "What is the main purpose of a Custom Tag Library (CTL) in JSP?",
@@ -130,18 +141,20 @@
             "To handle database connections within JSP",
             "To replace all standard JSP tags"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The main purpose of a Custom Tag Library (CTL) in JSP is to create reusable components with dynamic functionalities. CTLs allow developers to encapsulate complex logic and functionality into custom tags, which can then be reused across JSP pages, promoting modularity and maintainability. CTLs do not manage HTTP sessions, handle database connections directly, or replace all standard JSP tags."
     },
     {
         "question": "Which tag in JSTL core library is used to conditionally execute content?",
-        "code_snippet": "<c:if test=\"${user.loggedIn}\"> Welcome! </c:if>",
+        "code_snippet": "<c: ... test=\"${user.loggedIn}\"> Welcome! </c: ... >",
         "options": [
             "<c:choose>",
             "<c:when>",
             "<c:if>",
             "<c:forEach>"
         ],
-        "answer": 2
+        "answer": 2,
+       "explanation": "The `<c:if>` tag in the JSTL core library is used to conditionally execute content based on a test condition. The `test` attribute evaluates a boolean expression, and if it evaluates to true, the body of the tag is executed. Other tags like `<c:choose>` and `<c:when>` are used for multi-conditional logic, while `<c:forEach>` is for iteration."
     },
     {
         "question": "What does the <fmt:formatNumber> tag in JSTL do?",
@@ -152,7 +165,8 @@
             "Validates numeric input from the user",
             "Defines a variable for arithmetic calculations"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<fmt:formatNumber>` tag in JSTL is used to format numbers for internationalized output. It can display numbers in various formats such as currency, percentage, or custom patterns, making it useful for applications that need to support multiple locales. It does not perform mathematical operations, validate numeric input, or define variables for calculations."
     },
     {
         "question": "Which file is typically used to define custom tag libraries in a JSP application?",
@@ -162,7 +176,8 @@
             "tld file (Tag Library Descriptor)",
             "jsp-config.xml"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The TLD (Tag Library Descriptor) file is used to define custom tag libraries in a JSP application. It provides metadata about the custom tags, such as their names, attributes, and implementation classes. While `web.xml` defines application-wide configurations and `jsp-config.xml` specifies JSP-related settings, the TLD file is specifically designed for tag libraries."
     },
     {
         "question": "What does the <jsp:forward> tag do in a JSP page?",
@@ -172,7 +187,8 @@
             "Handles errors within a JSP page",
             "Executes Java code and prints output"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<jsp:forward>` tag in JSP is used to forward the current request to another resource on the server, such as another JSP, servlet, or HTML file. Unlike a client-side redirect, forwarding is handled internally on the server, and the client is unaware of the resource change. It does not redirect to an external URL, handle errors, or execute Java code directly."
     },
     {
         "question": "True or False: A JSP page can be dynamically included in another JSP using the <jsp:include> tag.",
@@ -180,7 +196,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. The `<jsp:include>` tag allows dynamic inclusion of another JSP page or resource at runtime. This is useful for including reusable components, such as headers, footers, or navigation menus, into a JSP page. The included content is processed each time the parent JSP is requested, ensuring the included content reflects any updates."
     },
     {
         "question": "What is the purpose of the Model-View-Controller (MVC) pattern in web applications?",
@@ -190,7 +207,8 @@
             "To manage database transactions automatically",
             "To standardize Java syntax for web applications"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The purpose of the Model-View-Controller (MVC) pattern in web applications is to separate data (Model), presentation (View), and business logic (Controller) layers. This separation improves maintainability, scalability, and testability by allowing each layer to be developed and modified independently. The MVC pattern does not replace servlets, manage database transactions, or standardize Java syntax."
     },
     {
         "question": "Which tag library in JSTL is used for XML processing?",
@@ -200,7 +218,8 @@
             "SQL Tags (sql)",
             "XML Tags (x)"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The XML Tags (`x`) library in JSTL is specifically designed for processing XML data. It includes tags for parsing, transforming, and extracting data from XML documents, making it ideal for applications that deal with XML-based data. Other libraries, such as Core Tags (`c`) for control flow, Formatting Tags (`fmt`) for internationalization, and SQL Tags (`sql`) for database operations, serve different purposes."
     },
     {
         "question": "What does JSF stand for?",
@@ -210,7 +229,8 @@
             "JavaServer Faces",
             "Java Standard Forms"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "JSF stands for JavaServer Faces. It is a Java-based web application framework designed for building component-based user interfaces. JSF simplifies the development of web applications by providing a set of reusable UI components and managing their state on the server. Other options, like 'Java Server Framework' or 'Java Servlet Faces,' are incorrect terms."
     },
     {
         "question": "What is the primary purpose of JSF?",
@@ -220,7 +240,8 @@
             "To provide security for web applications",
             "To handle messaging between services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of JSF (JavaServer Faces) is to simplify the development of server-side user interfaces. It provides a component-based framework for building reusable and dynamic UI elements, along with tools for managing their state and interaction on the server. While JSF can integrate with systems that manage database transactions or provide security, those are not its core functionalities."
     },
     {
         "question": "Which of the following is NOT a feature of JSF?",
@@ -230,18 +251,20 @@
             "Integrated object-relational mapping",
             "Support for internationalization"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "JSF does not include integrated object-relational mapping (ORM) as a feature. ORM is typically handled by frameworks like Hibernate or JPA. JSF provides features such as server-side validation, event-driven interaction, and support for internationalization, which are essential for building component-based web applications."
     },
     {
         "question": "Which annotation replaces @ManagedBean in JSF for CDI compatibility?",
-        "code_snippet": "@Named\n@SessionScoped\npublic class MyBean {}",
+        "code_snippet": "@... \n@SessionScoped\npublic class MyBean {}",
         "options": [
             "@Named",
             "@Bean",
             "@Inject",
             "@ScopedBean"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Named` annotation, provided by Contexts and Dependency Injection (CDI), replaces `@ManagedBean` in JSF for defining managed beans in a CDI-compatible way. It integrates seamlessly with CDI for dependency injection and bean lifecycle management. Other annotations like `@Inject` are used for dependency injection, and `@Bean` or `@ScopedBean` are not valid CDI or JSF annotations."
     },
     {
         "question": "What is the default scope of a JSF managed bean?",
@@ -251,18 +274,20 @@
             "@ViewScoped",
             "@ApplicationScoped"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The default scope of a JSF managed bean is `@RequestScoped`. In this scope, the bean is created for a single HTTP request and is discarded once the request is completed. Other scopes, such as `@SessionScoped` or `@ApplicationScoped`, must be explicitly declared and serve different purposes, such as maintaining state across multiple requests or application-wide scope."
     },
     {
         "question": "Which tag is used to define a form in JSF?",
-        "code_snippet": "<h:form>\n    <!-- Input Fields -->\n</h:form>",
+        "code_snippet": "<h: ... >\n    <!-- Input Fields -->\n</h: ... >",
         "options": [
             "<h:input>",
             "<h:form>",
             "<h:output>",
             "<h:command>"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<h:form>` tag in JSF is used to define a form in the UI. It encapsulates input fields and submits their values to the server when an action is triggered. Other tags, such as `<h:input>`, handle individual input fields, and `<h:output>` or `<h:command>` serve different purposes."
     },
     {
         "question": "What is the purpose of the <f:convertDateTime> tag in JSF?",
@@ -273,7 +298,8 @@
             "To create a custom date picker",
             "To configure the timezone for JSF"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<f:convertDateTime>` tag in JSF is used to convert a date or time value into a specific string format for display. The `pattern` attribute specifies the desired format, such as `yyyy-MM-dd`. It does not validate date input or configure timezones directly."
     },
     {
         "question": "What does the <h:outputText> tag do in JSF?",
@@ -283,7 +309,8 @@
             "Handles user input",
             "Executes server-side commands"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<h:outputText>` tag in JSF is used to display static or dynamic text on the user interface. It is often bound to a value expression to show data from the server. It does not handle user input or execute commands."
     },
     {
         "question": "What is the purpose of the navigation rules defined in faces-config.xml?",
@@ -293,7 +320,8 @@
             "To configure bean dependencies",
             "To validate user input across pages"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Navigation rules in `faces-config.xml` define page transitions based on user actions. They map outcomes of actions (such as a button click) to specific pages, enabling dynamic navigation. This feature is central to the flow control in JSF applications."
     },
     {
         "question": "What is the purpose of the <h:commandButton> tag in JSF?",
@@ -304,7 +332,8 @@
             "To handle client-side form validation",
             "To bind a form to a data source"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<h:commandButton>` tag in JSF is used to create a button that triggers an action or navigation on the server. The `action` attribute specifies the method to be executed when the button is clicked. It is not intended for client-side validation, clickable links, or form binding."
     },
     {
         "question": "What is the purpose of the @ViewScoped annotation in JSF?",
@@ -314,7 +343,8 @@
             "To manage a bean's state for the lifetime of a view",
             "To share a bean's state across the entire application"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@ViewScoped` annotation in JSF is used to manage a bean's state for the lifetime of a single view. The bean is created when the view is initialized and remains active until the user navigates away from the view. It is particularly useful for maintaining state across multiple interactions within the same page."
     },
     {
         "question": "True or False: JSF supports both implicit and explicit navigation.",
@@ -322,7 +352,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. JSF supports both implicit and explicit navigation. Implicit navigation is achieved through conventions such as matching navigation outcomes to page names, while explicit navigation is defined using navigation rules in `faces-config.xml` or annotations in the managed bean."
     },
     {
         "question": "Which file is used to configure the global settings and navigation rules in JSF?",
@@ -332,7 +363,8 @@
             "beans.xml",
             "application.xml"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `faces-config.xml` file is used to configure global settings and navigation rules in JSF. It allows developers to define navigation flows, managed beans, and other application-level configurations. Other files, such as `web.xml`, are used for broader web application settings but do not specifically manage JSF navigation rules."
     },
     {
         "question": "What is the purpose of the @FacesConverter annotation in JSF?",
@@ -342,7 +374,8 @@
             "To bind a bean to a converter",
             "To validate a bean property"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@FacesConverter` annotation in JSF is used to define a custom converter for UI components. Converters are responsible for converting between UI component values and their corresponding server-side object representations. This annotation simplifies the registration of custom converters for specific types or components."
     },
     {
         "question": "What is the purpose of the lifecycle phases in JSF?",
@@ -352,7 +385,8 @@
             "To configure server-side logging for debugging",
             "To manage the deployment of JSF applications"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The lifecycle phases in JSF define the sequence of steps for processing a user request and generating a response. These phases include restoring the view, processing events, applying updates, and rendering the response. They ensure that each request is handled systematically and consistently."
     },
     {
         "question": "What does the 'Restore View' phase in the JSF lifecycle do?",
@@ -362,7 +396,8 @@
             "Updates the model values",
             "Renders the final response"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The 'Restore View' phase in the JSF lifecycle builds the component tree for the requested page if it is being accessed for the first time. For subsequent requests, it restores the component tree from the server's state. This phase is essential for setting up the page for further processing."
     },
     {
         "question": "What is the difference between a managed bean and a backing bean in JSF?",
@@ -372,18 +407,20 @@
             "Managed beans handle server-side events, while backing beans handle data conversion.",
             "There is no difference; they are the same."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The primary difference between a managed bean and a backing bean in JSF is that managed beans are tied to a specific scope (e.g., request, session, view), while backing beans are specifically associated with a single UI component or page. Backing beans often handle event listeners and UI-specific logic."
     },
     {
         "question": "Which JSF tag is used for displaying error messages related to a specific component?",
-        "code_snippet": "<h:message for=\"inputField\"/>",
+        "code_snippet": "<h: ... for=\"inputField\"/>",
         "options": [
             "<h:outputError>",
             "<h:message>",
             "<h:error>",
             "<f:validateMessage>"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `<h:message>` tag in JSF is used to display error messages related to a specific UI component. The `for` attribute specifies the ID of the component for which the message is displayed. This tag provides user-friendly error feedback for validation failures or other issues."
     },
     {
         "question": "Which annotation in JSF indicates that a method is triggered by a user interaction event?",
@@ -393,7 +430,8 @@
             "@FacesAction",
             "@ActionListener"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `@ActionListener` annotation in JSF is used to indicate that a method should be triggered by a user interaction event, such as clicking a button. It is commonly used to bind server-side logic to UI events in a declarative way."
     },
     {
         "question": "What is the role of a render kit in JSF?",
@@ -403,7 +441,8 @@
             "To bind UI components to a database",
             "To handle server-side form validation"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "A render kit in JSF defines how UI components are rendered for a specific client or output format. For example, the default HTML render kit renders components as HTML, but custom render kits can be created for other formats like PDF or XML."
     },
     {
         "question": "What is a servlet in Java?",
@@ -413,7 +452,8 @@
             "A type of database connection pool",
             "A utility for managing application configurations"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "A servlet in Java is a server-side component that handles HTTP requests and responses. It is part of the Java EE platform and is used to build dynamic web applications. Servlets are not frameworks, database connection pools, or configuration utilities."
     },
     {
         "question": "Which class must be extended to create an HTTP servlet?",
@@ -423,7 +463,8 @@
             "java.net.Server",
             "javax.servlet.GenericServlet"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "To create an HTTP servlet, the `javax.servlet.http.HttpServlet` class must be extended. This class provides methods like `doGet()` and `doPost()` for handling HTTP-specific requests. Other classes like `javax.servlet.GenericServlet` are more generic and lack HTTP-specific functionality."
     },
     {
         "question": "What is the purpose of the `service()` method in a servlet?",
@@ -433,7 +474,8 @@
             "To manage the database connection pool",
             "To configure the servlet's deployment descriptor"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `service()` method in a servlet is responsible for handling HTTP requests and generating responses. It acts as the entry point for client requests and delegates processing to methods like `doGet()` or `doPost()`. It is not used for lifecycle events, database management, or configuration."
     },
     {
         "question": "What does the following annotation do?",
@@ -444,7 +486,8 @@
             "Creates a new servlet instance for every request",
             "Defines a filter for incoming requests"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@WebServlet` annotation maps a servlet to the specified name and URL pattern. In this case, the servlet is named `HelloServlet` and responds to requests made to `/hello`. It simplifies servlet configuration, which was traditionally done in the `web.xml` file."
     },
     {
         "question": "Which method is used to handle GET requests in a servlet?",
@@ -454,7 +497,8 @@
             "processRequest()",
             "handleGet()"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `doGet()` method is used to handle HTTP GET requests in a servlet. It processes requests where data is typically sent as query parameters in the URL. Other methods like `doPost()` handle POST requests, while `processRequest()` and `handleGet()` are not standard servlet methods."
     },
     {
         "question": "Which HTTP status code is typically returned for a successful response from a servlet?",
@@ -464,7 +508,8 @@
             "500",
             "403"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The HTTP status code `200` is returned for a successful response from a servlet. It indicates that the request was received, understood, and processed successfully. Codes like `404` indicate 'Not Found,' `500` indicates a server error, and `403` indicates 'Forbidden.'"
     },
     {
         "question": "What is the purpose of the `doPost()` method in a servlet?",
@@ -474,7 +519,8 @@
             "Handles all HTTP methods",
             "Processes initialization events"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `doPost()` method handles HTTP POST requests in a servlet. It is used when data is sent in the body of the request, such as form submissions. `doGet()` handles GET requests, while initialization events are managed by the `init()` method."
     },
     {
         "question": "Which object is used to retrieve request parameters in a servlet?",
@@ -484,7 +530,8 @@
             "RequestManager",
             "RequestHandler"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `HttpServletRequest` object is used to retrieve request parameters in a servlet. It provides methods like `getParameter()` to access form data and query parameters. Other options like `HttpRequest`, `RequestManager`, and `RequestHandler` are not standard servlet objects."
     },
     {
         "question": "What is the difference between a forward and a redirect in servlets?",
@@ -494,7 +541,8 @@
             "Both forward and redirect are server-side operations.",
             "Both forward and redirect are client-side operations."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "In servlets, a forward happens on the server-side, where the request is internally passed to another resource (e.g., JSP or servlet) without notifying the client. A redirect, on the other hand, is client-side; the server instructs the browser to make a new request to a different URL."
     },
     {
         "question": "What does the following code do?",
@@ -505,7 +553,8 @@
             "Sends a new request to the client for success.html",
             "Creates a new thread for processing the request"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The code forwards the request to `success.html` within the server. The `RequestDispatcher.forward()` method processes the same request and response objects, without the client being aware of the internal forwarding. It does not send a redirect or create a new request."
     },
     {
         "question": "True or False: A servlet instance is created for each HTTP request.",
@@ -513,7 +562,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. A single servlet instance is typically created and shared for handling multiple requests, unless explicitly configured otherwise. Multiple threads handle concurrent requests to the same servlet instance."
     },
     {
         "question": "Which servlet method is called only once during the servlet lifecycle?",
@@ -523,7 +573,8 @@
             "doGet()",
             "destroy()"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `init()` method is called only once during the lifecycle of a servlet, when the servlet is first loaded into memory. It is used for initialization tasks like setting up resources or configurations."
     },
     {
         "question": "What is the role of the `destroy()` method in a servlet?",
@@ -533,7 +584,8 @@
             "Initializes the servlet's parameters",
             "Handles exceptions in the servlet lifecycle"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `destroy()` method is called when the servlet is being taken out of service. It is used to release resources like database connections or threads that were allocated during the servlet's lifecycle. It does not handle DELETE requests or initialization."
     },
     {
         "question": "What is the purpose of the `ServletConfig` object?",
@@ -543,7 +595,8 @@
             "To handle database connections",
             "To define request-scoped attributes"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `ServletConfig` object is used to store configuration details for a servlet. It provides initialization parameters and allows the servlet to access information specific to its deployment. It does not manage HTTP sessions, database connections, or request-scoped attributes."
     },
     {
         "question": "Which annotation is used to define an asynchronous servlet?",
@@ -553,7 +606,8 @@
             "@WebAsync",
             "@AsyncSupported"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `@AsyncSupported` annotation is used to define an asynchronous servlet. It enables the servlet to process requests asynchronously, allowing the server to handle more requests concurrently without blocking threads for long-running tasks."
     },
     {
         "question": "What is the difference between `HttpSession` and `ServletContext`?",
@@ -563,7 +617,8 @@
             "`HttpSession` manages application settings, while `ServletContext` manages user sessions.",
             "Both are used for the same purpose but have different lifetimes."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "`HttpSession` is scoped to a single user session and stores session-specific data, while `ServletContext` is shared across the entire application and stores application-wide data. These two serve distinct purposes in servlet-based web applications."
     },
     {
         "question": "What is the use of the `getParameter()` method in a servlet?",
@@ -573,7 +628,8 @@
             "Initializes servlet parameters",
             "Sets response headers"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `getParameter()` method in a servlet is used to fetch a request parameter by name. It is commonly used to retrieve form data sent via HTTP GET or POST methods. It does not retrieve session attributes or initialize servlet parameters."
     },
     {
         "question": "Which method is used to send a redirect response to the client?",
@@ -583,7 +639,8 @@
             "redirectTo()",
             "dispatch()"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `sendRedirect()` method is used to send a redirect response to the client. It tells the browser to make a new request to a different URL. This is different from `forward()`, which happens server-side without involving the client."
     },
     {
         "question": "What is the purpose of the `getServletContext()` method?",
@@ -593,7 +650,8 @@
             "To obtain context-wide attributes and resources",
             "To initialize HTTP sessions"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `getServletContext()` method is used to obtain context-wide attributes and resources. It provides access to shared data and utilities, such as application initialization parameters, context attributes, and resources like files or data sources."
     },
     {
         "question": "Which HTTP method should be used when submitting sensitive data in a servlet?",
@@ -603,7 +661,8 @@
             "HEAD",
             "PUT"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The HTTP `POST` method should be used when submitting sensitive data, as it sends data in the request body rather than appending it to the URL. This helps protect sensitive information from being exposed in browser history or logs. The `GET` method is less secure as it includes data in the URL."
     },
     {
         "question": "What does Java EE stand for?",
@@ -613,7 +672,8 @@
             "Java Extended Edition",
             "Java Embedded Edition"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Java EE stands for Java Enterprise Edition. It is a set of specifications and APIs for developing enterprise-level applications, such as web services, distributed systems, and scalable web applications."
     },
     {
         "question": "What is the main purpose of Java EE?",
@@ -623,7 +683,8 @@
             "To replace relational databases with NoSQL",
             "To manage front-end web interfaces"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The main purpose of Java EE is to provide APIs and a runtime environment for building scalable, transactional, and secure enterprise applications. It includes specifications for technologies like servlets, EJB, and JPA, which enable robust back-end systems."
     },
     {
         "question": "Which specification is responsible for dependency injection in Java EE?",
@@ -633,7 +694,8 @@
             "JPA",
             "JAX-RS"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "CDI (Contexts and Dependency Injection) is the specification responsible for dependency injection in Java EE. It enables loose coupling between components by managing their lifecycles and injecting dependencies automatically. Other specifications like EJB and JPA serve different purposes."
     },
     {
         "question": "What is the relationship between J2EE, Java EE, and Jakarta EE?",
@@ -643,7 +705,8 @@
             "Java EE replaced Jakarta EE for cloud-native applications.",
             "J2EE is the current version of the platform."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Jakarta EE evolved from J2EE and Java EE after being donated to the Eclipse Foundation. J2EE was the original name, which was later rebranded as Java EE. After the transfer to the Eclipse Foundation, it was renamed Jakarta EE to signify the transition."
     },
     {
         "question": "Which of the following is NOT a Java EE component?",
@@ -653,7 +716,8 @@
             "JMS",
             "Python Script"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "Python Script is not a Java EE component. Java EE components include technologies such as Servlets, Enterprise JavaBeans (EJB), and Java Message Service (JMS), which are part of the platform for building enterprise-level applications."
     },
     {
         "question": "What is the purpose of the @ApplicationScoped annotation in Java EE?",
@@ -663,7 +727,8 @@
             "To manage transactions for a single session",
             "To bind a bean to a REST endpoint"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@ApplicationScoped` annotation defines a bean that is shared across the entire application lifecycle. It ensures that the same instance of the bean is used throughout the application's runtime, making it suitable for storing global data or configurations."
     },
     {
         "question": "What is a container in Java EE?",
@@ -673,7 +738,8 @@
             "A client-side Java application framework",
             "A physical server for deploying Java applications"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "In Java EE, a container is a runtime environment that provides services such as lifecycle management, security, and transaction handling to components like servlets, EJBs, and RESTful resources. It is not a database schema, client-side framework, or physical server."
     },
     {
         "question": "What is the role of JPA in Java EE?",
@@ -683,7 +749,8 @@
             "To provide dependency injection",
             "To manage messaging between components"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The Java Persistence API (JPA) in Java EE handles object-relational mapping and persistence. It simplifies the interaction with databases by allowing developers to work with objects instead of SQL, making it a key component for data management."
     },
     {
         "question": "What is the purpose of the Java EE Web Profile?",
@@ -693,18 +760,20 @@
             "To replace the Java SE runtime",
             "To provide a graphical interface for developing web applications"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The Java EE Web Profile is a subset of the full Java EE platform designed for lightweight web applications. It includes only the necessary specifications for web development, such as Servlets, JSP, and CDI, making it more suitable for smaller, focused applications."
     },
     {
         "question": "Which annotation is used to define a RESTful resource in Java EE?",
-        "code_snippet": "@Path(\"/resources\")\npublic class MyResource {\n    @GET\n    public String getResource() {\n        return \"Hello, World!\";\n    }\n}",
+        "code_snippet": "@... (\"/resources\")\npublic class MyResource {\n    @GET\n    public String getResource() {\n        return \"Hello, World!\";\n    }\n}",
         "options": [
             "@Service",
             "@WebService",
             "@Path",
             "@Resource"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Path` annotation is used to define a RESTful resource in Java EE. It specifies the URI path that the resource will respond to. In this example, the resource is accessible at `/resources`. Other annotations like `@Service` and `@WebService` are used for different purposes."
     },
     {
         "question": "What is the difference between @RequestScoped and @SessionScoped annotations?",
@@ -714,7 +783,8 @@
             "@RequestScoped is used for persistent data, while @SessionScoped is used for temporary data.",
             "@RequestScoped is for application-level beans, while @SessionScoped is for database connections."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@RequestScoped` annotation is active for a single HTTP request, meaning the bean is created and destroyed with each request. The `@SessionScoped` annotation, on the other hand, ties the bean to the user session, making it available for the duration of the session."
     },
     {
         "question": "Which of the following is a characteristic of enterprise applications built using Java EE?",
@@ -724,7 +794,8 @@
             "Designed for single-user environments",
             "Does not support RESTful APIs"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Enterprise applications built using Java EE are highly scalable and transactional. They are designed to handle distributed systems, support multi-user environments, and provide extensive support for RESTful APIs, making them suitable for large-scale enterprise use."
     },
     {
         "question": "What does the @Stateless annotation in Java EE signify?",
@@ -734,7 +805,8 @@
             "The bean provides persistence context for transactions.",
             "The bean is tied to a specific HTTP session."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Stateless` annotation signifies that the bean does not maintain client-specific state. Stateless beans are typically used for operations that do not depend on user-specific data and are more efficient for handling requests in a stateless manner."
     },
     {
         "question": "What is the purpose of the @Startup annotation in Java EE?",
@@ -744,7 +816,8 @@
             "To define a transactional boundary for a bean",
             "To configure security roles for an application"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Startup` annotation is used to mark a bean for eager initialization when the application starts. This is useful for tasks like preloading resources or running initialization logic at startup time."
     },
     {
         "question": "Which of the following is a valid use case for using JTA (Java Transaction API) in Java EE?",
@@ -754,7 +827,8 @@
             "To configure application server settings",
             "To synchronize client sessions"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "JTA (Java Transaction API) is used to manage distributed transactions across multiple databases or other transactional resources. It ensures consistency and reliability in operations that span multiple systems, making it a key feature for enterprise applications."
     },
     {
         "question": "What does the @Inject annotation do in Java EE?",
@@ -764,7 +838,8 @@
             "Injects dependencies into a bean",
             "Configures the application's database schema"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Inject` annotation is used to inject dependencies into a bean. It is part of the CDI (Contexts and Dependency Injection) specification and simplifies the management of object dependencies by letting the container resolve and provide the required instances."
     },
     {
         "question": "What is the purpose of the @PersistenceContext annotation?",
@@ -775,7 +850,8 @@
             "Configures the application's transaction boundaries",
             "Manages messaging queues in the application"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@PersistenceContext` annotation provides access to an `EntityManager` for database operations. It is commonly used in JPA to interact with the persistence context, enabling tasks like querying, updating, and managing entities."
     },
     {
         "question": "True or False: Java EE applications are always tightly coupled to a specific application server.",
@@ -783,7 +859,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. Java EE applications are designed to be portable across compliant application servers. This is achieved through standardized APIs and specifications, allowing applications to run on any server that implements the Java EE standard."
     },
     {
         "question": "Which of the following is NOT a method of achieving scalability in Java EE?",
@@ -793,7 +870,8 @@
             "Using serverless computing frameworks",
             "Increasing server resources vertically"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "Using serverless computing frameworks is not typically a method of achieving scalability in traditional Java EE applications. Scalability in Java EE is generally achieved through clustering, adding nodes horizontally, or increasing server resources vertically."
     },
     {
         "question": "What is the primary purpose of the CDI specification in Java EE?",
@@ -803,7 +881,8 @@
             "To configure distributed transactions",
             "To manage database connections"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of the CDI (Contexts and Dependency Injection) specification in Java EE is to provide type-safe dependency injection and lifecycle management for beans. It enables loose coupling between components and simplifies their interactions."
     },
     {
         "question": "What is a key principle of data management in Microservices?",
@@ -813,7 +892,8 @@
             "Data should be synchronized across services in real-time.",
             "All queries should use a central API for consistency."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Each service in a microservices architecture should manage its own data. This principle ensures loose coupling between services and allows them to function independently, improving scalability and maintainability."
     },
     {
         "question": "What is the main purpose of using the MicroProfile Config API in data management?",
@@ -823,7 +903,8 @@
             "To synchronize databases across services",
             "To handle transactional data updates"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The MicroProfile Config API is used to obtain configuration properties from multiple sources, such as environment variables, configuration files, and system properties. It allows applications to manage and access configuration values dynamically without redeploying."
     },
     {
         "question": "What does the CAP theorem state?",
@@ -833,7 +914,8 @@
             "Microservices cannot support eventual consistency.",
             "A centralized database is required for consistency and availability."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The CAP theorem states that a distributed system can only achieve two of the following three properties simultaneously: consistency, availability, and partition tolerance. This means trade-offs must be made depending on the system's requirements."
     },
     {
         "question": "Which is an example of sacrificing consistency in distributed systems?",
@@ -843,7 +925,8 @@
             "Ensuring all writes are immediately reflected across nodes",
             "Using synchronized data replication"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Allowing read and write operations despite network partitions is an example of sacrificing consistency. This trade-off, often referred to as eventual consistency, prioritizes availability and partition tolerance at the expense of strict data consistency."
     },
     {
         "question": "What is the purpose of the Two-Phase Commit (2PC) protocol?",
@@ -853,7 +936,8 @@
             "To replicate data for scalability",
             "To enable eventual consistency"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The Two-Phase Commit (2PC) protocol ensures atomic transactions across multiple nodes in a distributed system. It does this by coordinating transaction commits in two phases to guarantee that either all nodes commit or none do."
     },
     {
         "question": "Which data management pattern ensures data consistency across multiple services without using 2PC?",
@@ -863,7 +947,8 @@
             "Saga Pattern",
             "Database Sharding"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The Saga Pattern ensures data consistency across multiple services without using 2PC by breaking transactions into smaller, independent steps. It uses compensating actions to handle failures and maintain eventual consistency in a distributed environment."
     },
     {
         "question": "What is a key characteristic of the Saga Pattern?",
@@ -873,7 +958,8 @@
             "It requires synchronous communication for consistency.",
             "It guarantees strict ACID compliance."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A key characteristic of the Saga Pattern is its use of compensating actions to handle distributed transactions. This pattern avoids strict ACID compliance and centralized databases, enabling eventual consistency in a distributed system through asynchronous communication."
     },
     {
         "question": "What is the difference between compensatable and pivot transactions in the Saga Pattern?",
@@ -883,7 +969,8 @@
             "Pivot transactions are asynchronous, while compensatable transactions are synchronous.",
             "Pivot transactions always precede compensatable transactions."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Compensatable transactions can be undone using compensating actions, making them reversible. Pivot transactions, however, are the point of no return in the Saga Pattern, determining whether the saga should proceed or fail. Once a pivot transaction succeeds, subsequent compensations are not allowed."
     },
     {
         "question": "What is the main advantage of Event Sourcing in Microservices?",
@@ -893,7 +980,8 @@
             "Improves performance by avoiding ACID transactions",
             "Enables distributed locking mechanisms"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Event Sourcing stores application state as a sequence of events, ensuring consistency and a complete history of changes. This approach allows services to rebuild their state from events and enables time-travel debugging and easier integration with event-driven systems."
     },
     {
         "question": "Which is a disadvantage of the shared database approach in Microservices?",
@@ -903,7 +991,8 @@
             "Reduced performance due to distributed queries",
             "Limited flexibility in choosing database technologies"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The shared database approach in Microservices couples services through a single schema, reducing service independence. This tight coupling makes it difficult to evolve individual services and limits scalability and flexibility in database technology choices."
     },
     {
         "question": "What is a key benefit of the database-per-service approach?",
@@ -913,7 +1002,8 @@
             "Centralized database security policies",
             "Guaranteed consistency across services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The database-per-service approach ensures loosely coupled services by allowing each service to have its own independent database. This improves service autonomy, scalability, and the ability to use different database technologies tailored to each service's needs."
     },
     {
         "question": "What is the primary purpose of CQRS (Command Query Responsibility Segregation)?",
@@ -923,7 +1013,8 @@
             "To enforce database replication for consistency",
             "To combine API calls across services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "CQRS (Command Query Responsibility Segregation) separates data models for reading (queries) and writing (commands), allowing for optimized performance and scalability. This pattern is particularly useful in systems with high read and write demands or complex business logic."
     },
     {
         "question": "Which of the following describes eventual consistency?",
@@ -933,7 +1024,8 @@
             "The system ensures data consistency over time, not immediately.",
             "Writes are always consistent, but reads may be stale."
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "Eventual consistency means that the system ensures data consistency over time but does not guarantee immediate consistency. This approach is common in distributed systems, where high availability and partition tolerance are prioritized over strict consistency."
     },
     {
         "question": "What is the main purpose of sharding in Microservices databases?",
@@ -943,7 +1035,8 @@
             "To enforce strict consistency for all queries",
             "To simplify schema design in relational databases"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Sharding improves scalability by distributing data across multiple databases or partitions. Each shard contains a subset of the data, allowing the system to handle larger datasets and higher traffic by distributing the workload among different database instances."
     },
     {
         "question": "What is a challenge of using distributed transactions in Microservices?",
@@ -953,7 +1046,8 @@
             "Reduced need for database replication",
             "Improved query performance across services"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Distributed transactions introduce increased latency and communication overhead due to the coordination required between services and databases. This can affect performance and make fault tolerance more complex."
     },
     {
         "question": "True or False: Domain events are often used in conjunction with the Saga Pattern to achieve consistency.",
@@ -961,7 +1055,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. Domain events are frequently used with the Saga Pattern to achieve eventual consistency. They enable communication between services by notifying them of state changes, helping coordinate compensating actions in case of failures."
     },
     {
         "question": "Which MicroProfile API supports configuration properties for data management?",
@@ -971,7 +1066,8 @@
             "MicroProfile Config",
             "MicroProfile OpenTracing"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The MicroProfile Config API supports configuration properties for data management. It allows applications to dynamically retrieve configuration values from various sources, such as environment variables, configuration files, or external configuration servers."
     },
     {
         "question": "What is the purpose of the Read Model in CQRS?",
@@ -981,7 +1077,8 @@
             "To manage database transactions",
             "To enforce security policies on data access"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The Read Model in CQRS is designed to handle complex queries optimized for read operations. It often uses denormalized data structures to improve query performance and is separate from the Write Model, which focuses on handling commands."
     },
     {
         "question": "What is a common issue with maintaining isolation in distributed systems?",
@@ -991,7 +1088,8 @@
             "Simplified schema migrations",
             "Reduced need for event logging"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "A common issue with maintaining isolation in distributed systems is the occurrence of lost updates and dirty reads. These problems arise due to the lack of immediate consistency across nodes and the complexities of ensuring transactional integrity in distributed environments."
     },
     {
         "question": "What is a semantic lock in distributed systems?",
@@ -1001,7 +1099,8 @@
             "A mechanism to increase transaction speed",
             "A method to synchronize data across shards"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A semantic lock is an application-level flag used to prevent conflicts during concurrent updates in distributed systems. Unlike database locks, semantic locks operate at the application logic level, offering greater flexibility in managing concurrent operations."
     },
     {
         "question": "What are the three main characteristics of application security?",
@@ -1011,7 +1110,8 @@
             "Integrity, Performance, Monitoring",
             "Authorization, Privacy, Data Replication"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The three main characteristics of application security are authentication, authorization, and non-repudiation. Authentication verifies user identity, authorization grants permissions, and non-repudiation ensures actions can be attributed to specific users."
     },
     {
         "question": "What does the authentication process ensure?",
@@ -1021,7 +1121,8 @@
             "The data integrity of the application",
             "The prevention of network attacks"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Authentication ensures that the user's identity is verified. It is the first step in securing an application, typically achieved through credentials like usernames and passwords or more advanced methods like biometrics."
     },
     {
         "question": "What is the purpose of the authorization process?",
@@ -1031,7 +1132,8 @@
             "To encrypt data transmitted over a network",
             "To log user activity for auditing"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Authorization determines what actions a user is allowed to perform or what resources they can access after their identity has been authenticated. It controls permissions to ensure secure and appropriate use of resources."
     },
     {
         "question": "Which layer is responsible for securing the data while it is being transmitted?",
@@ -1041,7 +1143,8 @@
             "Message Layer",
             "Session Layer"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The Transport Layer is responsible for securing data during transmission. Protocols like TLS (Transport Layer Security) encrypt data to protect it from interception and tampering while in transit."
     },
     {
         "question": "What is a realm in Java EE security?",
@@ -1051,7 +1154,8 @@
             "A container for managing network requests",
             "A directory for storing application files"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "A realm in Java EE security is a security policy domain that defines users, roles, and groups. It is used to authenticate and authorize users within the context of an application or server."
     },
     {
         "question": "What does the @RolesAllowed annotation specify?",
@@ -1062,7 +1166,8 @@
             "Marks the method as requiring secure transmission",
             "Defines the user roles for authentication"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@RolesAllowed` annotation specifies the role required to access a resource or execute a method. In this example, only users with the 'admin' role are allowed to invoke the `manageUsers` method."
     },
     {
         "question": "What is the function of the @DeclareRoles annotation?",
@@ -1072,7 +1177,8 @@
             "To restrict access to specific methods",
             "To configure HTTPS for secure communication"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@DeclareRoles` annotation is used to declare all roles that are used in the application. This allows the application server to recognize these roles for authentication and authorization purposes."
     },
     {
         "question": "Which authentication mechanism uses HTTP over SSL (HTTPS) for secure communication?",
@@ -1082,7 +1188,8 @@
             "BASIC",
             "CLIENT-CERT"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `CLIENT-CERT` authentication mechanism uses HTTP over SSL (HTTPS) to provide secure communication. It relies on client certificates for mutual authentication between the client and the server."
     },
     {
         "question": "What does the @PermitAll annotation signify?",
@@ -1092,7 +1199,8 @@
             "Requires user roles to be declared",
             "Restricts access to all resources"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@PermitAll` annotation allows access to all users, whether authenticated or not. It is typically used to designate methods or resources that do not require any specific security constraints."
     },
     {
         "question": "True or False: Digest authentication sends the user password over the network in plaintext.",
@@ -1100,7 +1208,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. Digest authentication does not send the user's password in plaintext. Instead, it transmits a hashed version of the password combined with a nonce to enhance security."
     },
     {
         "question": "Which XML configuration is used to define authentication mechanisms and security roles?",
@@ -1110,7 +1219,8 @@
             "faces-config.xml",
             "security.xml"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `web.xml` file is used to define authentication mechanisms, security constraints, and security roles for a Java EE web application. It serves as the deployment descriptor for configuring web-specific settings."
     },
     {
         "question": "What is the purpose of the SecurityContext in Java EE?",
@@ -1120,7 +1230,8 @@
             "To log security-related events",
             "To configure HTTPS settings"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `SecurityContext` in Java EE is used to manage user authentication and role-based access control. It provides methods to check the user's roles, determine their identity, and enforce security policies programmatically."
     },
     {
         "question": "Which of the following is an example of declarative security?",
@@ -1130,7 +1241,8 @@
             "Defining a realm in the server console",
             "Encrypting data manually in the application"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Using the `@RolesAllowed` annotation is an example of declarative security. Declarative security involves defining security constraints and roles using annotations or deployment descriptors, rather than writing custom logic programmatically."
     },
     {
         "question": "What is a user group in Java EE security?",
@@ -1140,7 +1252,8 @@
             "A database table storing user credentials",
             "A group of APIs for managing authentication"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A user group in Java EE security is a collection of users sharing common permissions. Groups are used to assign permissions collectively, simplifying the management of access control for multiple users."
     },
     {
         "question": "Which HTTP status code represents 'Unauthorized'?",
@@ -1150,7 +1263,8 @@
             "404",
             "500"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The HTTP status code `401` represents 'Unauthorized'. It indicates that the client must authenticate itself to access the requested resource. A `403` status, in contrast, means 'Forbidden', where authentication may not resolve the issue."
     },
     {
         "question": "What does the <auth-method>FORM</auth-method> configuration in web.xml define?",
@@ -1160,7 +1274,8 @@
             "Form-based login authentication",
             "Certificate-based authentication"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `<auth-method>FORM</auth-method>` configuration in `web.xml` defines form-based login authentication. It allows developers to specify a custom login form and error page for user authentication."
     },
     {
         "question": "Which annotation restricts access to a method for all users?",
@@ -1170,7 +1285,8 @@
             "@PermitAll",
             "@RestrictAccess"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@DenyAll` annotation restricts access to a method or resource for all users. It is often used to temporarily block access to a feature or to define stricter access rules programmatically."
     },
     {
         "question": "What is the purpose of the @Liveness annotation in securing Java EE applications?",
@@ -1180,7 +1296,8 @@
             "Defines user roles for session tracking",
             "Handles encryption during data transfer"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Liveness` annotation is used in health checks to determine if a service is running. It is part of application observability rather than user authentication or encryption."
     },
     {
         "question": "True or False: Security constraints defined in web.xml can specify which roles can access specific URL patterns.",
@@ -1188,7 +1305,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. Security constraints in `web.xml` can specify which roles are allowed to access specific URL patterns. This is a common method for managing access control in Java EE web applications."
     },
     {
         "question": "Which of the following best describes programmatic security?",
@@ -1198,7 +1316,8 @@
             "Security rules defined in deployment descriptors",
             "Security policies enforced by the application server"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Programmatic security involves writing security logic directly into the application code. It gives developers full control over security behavior, such as checking user roles or permissions, but requires more effort compared to declarative security."
     },
     {
         "question": "What does JPA stand for?",
@@ -1208,7 +1327,8 @@
             "Java Platform Architecture",
             "Java Process Automation"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "JPA stands for Java Persistence API. It is a specification for managing relational data in Java applications, providing an object-relational mapping (ORM) framework."
     },
     {
         "question": "What is the primary purpose of JPA?",
@@ -1218,7 +1338,8 @@
             "To configure application servers",
             "To build user interfaces"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of JPA is to handle object-relational mapping (ORM). It allows developers to work with database data as Java objects, bridging the gap between object-oriented programming and relational databases."
     },
     {
         "question": "What does the @Entity annotation in JPA signify?",
@@ -1228,18 +1349,20 @@
             "The class is a JNDI resource",
             "The class is a transactional object"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Entity` annotation in JPA signifies that the class is a database entity. It tells JPA to map the class to a table in the database, enabling it to persist and retrieve data."
     },
     {
         "question": "Which annotation is used to specify the primary key of an entity in JPA?",
-        "code_snippet": "@Id\nprivate Long id;",
+        "code_snippet": "@...\nprivate Long id;",
         "options": [
             "@GeneratedValue",
             "@PrimaryKey",
             "@Id",
             "@Key"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Id` annotation is used to specify the primary key of an entity in JPA. It marks a field or property as the unique identifier for the entity."
     },
     {
         "question": "What is the purpose of the @Table annotation in JPA?",
@@ -1249,7 +1372,8 @@
             "To create a new table in the database",
             "To define transactional behavior"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Table` annotation in JPA is used to map a class to a specific database table. It provides additional mapping details such as the table name and schema."
     },
     {
         "question": "What does the @GeneratedValue annotation in JPA do?",
@@ -1259,7 +1383,8 @@
             "Maps a column to a specific field",
             "Marks a method as a lifecycle callback"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@GeneratedValue` annotation in JPA specifies how primary key values are generated. It supports strategies like `AUTO`, `IDENTITY`, and `SEQUENCE`, which determine how the database generates unique identifiers for entities."
     },
     {
         "question": "What is the function of the EntityManager in JPA?",
@@ -1269,7 +1394,8 @@
             "Configures application-level security",
             "Generates SQL queries automatically"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `EntityManager` in JPA handles CRUD (Create, Read, Update, Delete) operations on entities. It provides methods for persisting, finding, merging, and removing entities, serving as the primary interface for interacting with the persistence context."
     },
     {
         "question": "Which method in the EntityManager is used to save an entity to the database?",
@@ -1279,7 +1405,8 @@
             "save",
             "flush"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `persist` method in the `EntityManager` is used to save a new entity to the database. It marks the entity as managed and ensures its data is inserted into the database when the transaction is committed."
     },
     {
         "question": "What does the @OneToMany annotation define in JPA?",
@@ -1289,18 +1416,20 @@
             "A one-to-many relationship between entities",
             "A unidirectional relationship"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@OneToMany` annotation in JPA defines a one-to-many relationship between entities. It is commonly used when one entity is associated with multiple instances of another entity, such as a parent-child relationship."
     },
     {
         "question": "Which annotation in JPA is used for mapping a composite primary key?",
-        "code_snippet": "@Embeddable\npublic class EmployeeId implements Serializable {\n    private Long departmentId;\n    private Long employeeNumber;\n}",
+        "code_snippet": "@... \npublic class EmployeeId implements Serializable {\n    private Long departmentId;\n    private Long employeeNumber;\n}",
         "options": [
             "@CompositeKey",
             "@Embeddable",
             "@CompositePrimaryKey",
             "@KeyGroup"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Embeddable` annotation in JPA is used to map a composite primary key. It marks a class as an embeddable type, which can then be used as a composite key in an entity by combining multiple fields."
     },
     {
         "question": "True or False: JPA requires a persistence.xml file to configure the persistence unit.",
@@ -1308,7 +1437,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. JPA requires a `persistence.xml` file to configure the persistence unit. This file specifies details like the database connection, entity classes, and transaction management."
     },
     {
         "question": "What is the purpose of the @ManyToOne annotation in JPA?",
@@ -1318,7 +1448,8 @@
             "To map multiple entities to a single entity",
             "To define a many-to-one relationship between entities"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `@ManyToOne` annotation in JPA is used to define a many-to-one relationship between entities. It indicates that multiple instances of one entity are associated with a single instance of another entity."
     },
     {
         "question": "What is the default fetching strategy for a @OneToMany relationship in JPA?",
@@ -1328,7 +1459,8 @@
             "IMMEDIATE",
             "FETCH_ALL"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The default fetching strategy for a `@OneToMany` relationship in JPA is `LAZY`. This means the related entities are not loaded from the database until they are explicitly accessed."
     },
     {
         "question": "What is the function of the @JoinColumn annotation in JPA?",
@@ -1338,7 +1470,8 @@
             "To map a field to a unique constraint",
             "To set up cascade operations"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@JoinColumn` annotation in JPA is used to specify the column that joins two tables in a relationship. It defines the foreign key column in the database that maps the relationship between two entities."
     },
     {
         "question": "What is the purpose of the @PrePersist annotation in JPA?",
@@ -1349,7 +1482,8 @@
             "Defines a method to be called before a query is executed",
             "Defines a method to be called during an update operation"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@PrePersist` annotation in JPA marks a method to be called before an entity is persisted to the database. It is commonly used for initializing or setting default values, such as timestamps."
     },
     {
         "question": "What is the role of the @CascadeType.ALL setting in JPA?",
@@ -1359,7 +1493,8 @@
             "Sets the default fetch type for the relationship",
             "Ensures data is cached for future use"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `CascadeType.ALL` setting in JPA applies all available cascade operations to the relationship, including `PERSIST`, `MERGE`, `REMOVE`, `REFRESH`, and `DETACH`. It ensures that operations performed on a parent entity are cascaded to its related entities."
     },
     {
         "question": "What is the main purpose of JPQL (Java Persistence Query Language)?",
@@ -1369,7 +1504,8 @@
             "To define database schemas",
             "To manage transactions"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "JPQL (Java Persistence Query Language) is used to query and manipulate entity objects in JPA. It provides an object-oriented syntax for interacting with entities, which is independent of the underlying database."
     },
     {
         "question": "Which method in EntityManager is used to synchronize the state of entities with the database?",
@@ -1379,7 +1515,8 @@
             "synchronize",
             "persist"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `flush` method in `EntityManager` is used to synchronize the state of entities with the database. It writes any pending changes in the persistence context to the database but does not commit the transaction."
     },
     {
         "question": "What is the main difference between EAGER and LAZY fetching in JPA?",
@@ -1389,7 +1526,8 @@
             "LAZY is the default fetching strategy, while EAGER must be configured.",
             "EAGER is used for composite keys, while LAZY is used for single keys."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "EAGER fetching in JPA retrieves data immediately when the parent entity is loaded, while LAZY fetching retrieves data only when it is accessed. LAZY is the default strategy for many-to-one and one-to-many relationships."
     },
     {
         "question": "True or False: JPA allows polymorphic queries using the inheritance hierarchy of entities.",
@@ -1397,7 +1535,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. JPA supports polymorphic queries, allowing developers to query entities based on their inheritance hierarchy. For example, querying a parent entity class will also return instances of its subclasses."
     },
     {
         "question": "What is the main purpose of the Microservices architecture?",
@@ -1407,9 +1546,10 @@
             "To reduce the need for APIs in applications",
             "To standardize database schemas"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The main purpose of the Microservices architecture is to break down applications into small, independently managed services. This approach enhances scalability, maintainability, and the ability to develop and deploy features independently."
     },
-    {
+        {
         "question": "Which of the following is NOT a characteristic of Microservices?",
         "options": [
             "Small and isolated services",
@@ -1417,7 +1557,8 @@
             "Each service shares a common database",
             "Services expose standard interfaces"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "In Microservices architecture, each service typically has its own database to ensure loose coupling and independent scalability. Sharing a common database contradicts this principle and introduces tight coupling between services."
     },
     {
         "question": "What are the benefits of using Microservices architecture?",
@@ -1427,7 +1568,8 @@
             "Tightly coupled services",
             "Standardized programming language"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "Microservices architecture offers flexibility and scalability by breaking down applications into smaller, independently deployable services. This allows teams to work on different services simultaneously and scale only the required components."
     },
     {
         "question": "What is the primary communication protocol used in Microservices?",
@@ -1437,7 +1579,8 @@
             "REST",
             "SMTP"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "REST is the primary communication protocol used in Microservices due to its simplicity, lightweight nature, and support for standard HTTP methods. While SOAP is another option, it is less commonly used in modern Microservices."
     },
     {
         "question": "What does Eclipse MicroProfile provide?",
@@ -1447,7 +1590,8 @@
             "A graphical interface for Java EE development",
             "A deployment platform for serverless applications"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Eclipse MicroProfile provides optimized APIs and technologies for building Microservices. It extends Java EE with features like configuration management, health checks, and fault tolerance, specifically tailored for Microservices architecture."
     },
     {
         "question": "Which of the following is a runtime supporting Eclipse MicroProfile?",
@@ -1457,7 +1601,8 @@
             "Django",
             "Node.js"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "WildFly is a runtime that supports Eclipse MicroProfile, enabling developers to build and deploy Microservices. Other runtimes like Payara Micro and Open Liberty also support MicroProfile. Spring Boot and Node.js are not MicroProfile runtimes."
     },
     {
         "question": "What does the @ApplicationPath annotation do in a MicroProfile application?",
@@ -1468,7 +1613,8 @@
             "Registers custom configuration properties",
             "Specifies the scope of application beans"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@ApplicationPath` annotation sets the base URI for all REST endpoints in a MicroProfile application. In this example, all endpoints would be prefixed with `/api`."
     },
     {
         "question": "What is the purpose of the MicroProfile Config API?",
@@ -1478,7 +1624,8 @@
             "To handle asynchronous processing in Microservices",
             "To provide a centralized logging system"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The MicroProfile Config API manages configuration properties across different environments. It enables applications to retrieve configuration values dynamically from multiple sources, such as environment variables, property files, and external configuration servers."
     },
     {
         "question": "Which MicroProfile API provides a unified way to expose metrics in Microservices?",
@@ -1488,7 +1635,8 @@
             "MicroProfile Config",
             "MicroProfile OpenTracing"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The MicroProfile Metrics API provides a unified way to expose metrics in Microservices. It allows developers to collect and expose application telemetry, such as counters, timers, and gauges, to monitor performance and resource usage."
     },
     {
         "question": "What is the main benefit of MicroProfile Fault Tolerance?",
@@ -1498,18 +1646,20 @@
             "It reduces the need for testing Microservices.",
             "It ensures all services are synchronous."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The main benefit of MicroProfile Fault Tolerance is that it allows services to handle failures gracefully. It provides features like retries, timeouts, circuit breakers, and bulkheads to ensure resilience in distributed systems."
     },
     {
         "question": "Which annotation is used to implement a circuit breaker in MicroProfile Fault Tolerance?",
-        "code_snippet": "@CircuitBreaker(successThreshold = 5, requestVolumeThreshold = 10, failureRatio = 0.5, delay = 1000)\npublic String getData() {\n    return \"Success\";\n}",
+        "code_snippet": "@... (successThreshold = 5, requestVolumeThreshold = 10, failureRatio = 0.5, delay = 1000)\npublic String getData() {\n    return \"Success\";\n}",
         "options": [
             "@Bulkhead",
             "@Timeout",
             "@Retry",
             "@CircuitBreaker"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `@CircuitBreaker` annotation in MicroProfile Fault Tolerance is used to implement the circuit breaker pattern. It prevents a service from being overwhelmed by failures by opening the circuit after a specified failure ratio is exceeded."
     },
     {
         "question": "What is the purpose of the @Retry annotation in MicroProfile Fault Tolerance?",
@@ -1519,18 +1669,20 @@
             "To declare a fallback method",
             "To limit the concurrent requests to a service"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Retry` annotation specifies the retry logic for failed operations in MicroProfile Fault Tolerance. It allows methods to automatically retry execution based on configurable parameters like maximum retries and delay."
     },
     {
         "question": "Which annotation is used to limit concurrent access to a Microservice?",
-        "code_snippet": "@Bulkhead(value = 5, waitingTaskQueue = 10)\npublic String processData() {\n    return \"Processed\";\n}",
+        "code_snippet": "@... (value = 5, waitingTaskQueue = 10)\npublic String processData() {\n    return \"Processed\";\n}",
         "options": [
             "@Timeout",
             "@Bulkhead",
             "@Retry",
             "@CircuitBreaker"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Bulkhead` annotation in MicroProfile Fault Tolerance is used to limit concurrent access to a Microservice. It ensures that a service can handle only a specific number of concurrent requests, protecting it from overload."
     },
     {
         "question": "What is the role of @Liveness in MicroProfile Health?",
@@ -1540,7 +1692,8 @@
             "Indicates whether the application is running",
             "Ensures that the application has no critical errors"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Liveness` annotation in MicroProfile Health indicates whether the application is running. It is used to expose health check endpoints that signal the system's operational status to monitoring tools."
     },
     {
         "question": "What is the primary purpose of MicroProfile OpenAPI?",
@@ -1550,7 +1703,8 @@
             "To generate documentation for RESTful APIs",
             "To manage security for REST endpoints"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The primary purpose of MicroProfile OpenAPI is to generate documentation for RESTful APIs. It helps developers create standardized API specifications, enabling better understanding and integration of services."
     },
     {
         "question": "True or False: The MicroProfile Metrics API can provide custom telemetry data for Microservices.",
@@ -1558,7 +1712,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. The MicroProfile Metrics API allows developers to define custom telemetry data for Microservices, such as counters, timers, and custom metrics, to monitor application performance and resource usage effectively."
     },
     {
         "question": "What is a common communication challenge in Microservices architectures?",
@@ -1568,7 +1723,8 @@
             "Communication overhead and service discovery.",
             "Services are not allowed to scale independently."
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "A common communication challenge in Microservices architectures is the overhead caused by inter-service communication and the complexity of service discovery. These challenges arise due to the distributed nature of Microservices, which rely on APIs or messaging systems for communication."
     },
     {
         "question": "Which of the following describes the concept of eventual consistency in distributed systems?",
@@ -1578,7 +1734,8 @@
             "Consistency is maintained only for read operations.",
             "Data updates must be applied synchronously across all nodes."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Eventual consistency means that data updates may be delayed but will eventually synchronize across all nodes. It is a common trade-off in distributed systems to achieve availability and partition tolerance."
     },
     {
         "question": "What is the purpose of the CompletionStage API in Microservices?",
@@ -1588,7 +1745,8 @@
             "To handle retries for failed operations",
             "To define service-level agreements"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The CompletionStage API enables asynchronous chaining of operations. It provides a way to compose multiple asynchronous tasks and manage their execution without blocking, making it ideal for improving performance in Microservices."
     },
     {
         "question": "What is the main purpose of the @Timeout annotation in MicroProfile Fault Tolerance?",
@@ -1598,7 +1756,8 @@
             "To restrict concurrent service access",
             "To create retry policies for slow services"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Timeout` annotation sets a time limit for method execution. If a method exceeds the specified timeout, it is interrupted to prevent it from blocking the system or consuming resources unnecessarily."
     },
     {
         "question": "What does CDI stand for in Java EE?",
@@ -1608,7 +1767,8 @@
             "Code and Data Integration",
             "Container Dependency Implementation"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "CDI stands for Context and Dependency Injection. It is a specification in Java EE that provides a framework for type-safe dependency injection and lifecycle management of beans."
     },
     {
         "question": "What is the primary purpose of CDI in Java EE?",
@@ -1618,18 +1778,20 @@
             "To manage database transactions",
             "To replace Entity Beans in persistence management"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of CDI is to provide type-safe dependency injection and interception. It simplifies the development of loosely coupled components by managing their lifecycle and interactions."
     },
     {
         "question": "Which annotation is used to declare a CDI-managed bean?",
-        "code_snippet": "@Named\n@RequestScoped\npublic class MyBean {\n    public String sayHello() {\n        return \"Hello!\";\n    }\n}",
+        "code_snippet": "@... \n@RequestScoped\npublic class MyBean {\n    public String sayHello() {\n        return \"Hello!\";\n    }\n}",
         "options": [
             "@Component",
             "@Bean",
             "@Named",
             "@ManagedBean"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Named` annotation is used to declare a CDI-managed bean. It allows the bean to be accessible by its name in expression language (EL) contexts, enabling its use in JSF or other frameworks."
     },
     {
         "question": "What is the default scope for a CDI bean if no scope is specified?",
@@ -1639,7 +1801,8 @@
             "@Dependent",
             "@SessionScoped"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The default scope for a CDI bean is `@Dependent`. This means the bean's lifecycle is tied to the object that injects it, making it a dependent object with no standalone lifecycle."
     },
     {
         "question": "What is the purpose of the @Inject annotation in CDI?",
@@ -1649,7 +1812,8 @@
             "To register a bean in the container",
             "To declare the scope of a bean"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Inject` annotation is used to inject dependencies into a CDI-managed bean. It allows the container to resolve and provide the required instances automatically."
     },
     {
         "question": "Which of the following is NOT a scope provided by CDI?",
@@ -1659,7 +1823,8 @@
             "@ViewScoped",
             "@ThreadScoped"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "`@ThreadScoped` is not a scope provided by CDI. CDI includes scopes like `@RequestScoped`, `@SessionScoped`, `@ApplicationScoped`, and `@ViewScoped`, which are used to manage the lifecycle of beans in various contexts."
     },
     {
         "question": "What is the role of the @Qualifier annotation in CDI?",
@@ -1669,7 +1834,8 @@
             "To inject a bean using its name",
             "To define lifecycle callbacks for a bean"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Qualifier` annotation is used in CDI to resolve ambiguity when multiple beans match a dependency. It allows developers to specify which bean should be injected by associating the dependency with a qualifier."
     },
     {
         "question": "True or False: CDI beans can only be injected into other CDI beans.",
@@ -1677,7 +1843,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. CDI beans can be injected into various components, including servlets, RESTful endpoints, and other Java EE components, not just other CDI beans."
     },
     {
         "question": "What is the purpose of the @Produces annotation in CDI?",
@@ -1687,18 +1854,20 @@
             "To declare a bean as injectable",
             "To register a bean in the container"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Produces` annotation in CDI marks a method as a factory for creating injectable objects. It is used when the object cannot be directly instantiated or requires special initialization logic."
     },
     {
         "question": "Which of the following annotations can be used to create a custom qualifier in CDI?",
-        "code_snippet": "@Qualifier\n@Retention(RUNTIME)\n@Target({FIELD, TYPE, METHOD})\npublic @interface CustomQualifier {}",
+        "code_snippet": "@... \n@Retention(RUNTIME)\n@Target({FIELD, TYPE, METHOD})\npublic @interface CustomQualifier {}",
         "options": [
             "@Inject",
             "@Qualifier",
             "@Named",
             "@Scoped"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Qualifier` annotation is used to create a custom qualifier in CDI. Qualifiers are used to distinguish between multiple beans of the same type when resolving dependencies."
     },
     {
         "question": "Which annotation specifies that a bean is application-wide and shared across all users?",
@@ -1708,7 +1877,8 @@
             "@ApplicationScoped",
             "@Dependent"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@ApplicationScoped` annotation specifies that a bean is application-wide and shared across all users. It is active for the entire lifecycle of the application."
     },
     {
         "question": "What is the purpose of the @Alternative annotation in CDI?",
@@ -1718,7 +1888,8 @@
             "To inject multiple beans into a single dependency",
             "To declare a bean as thread-safe"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Alternative` annotation specifies a bean that can be selected at deployment time. It allows developers to configure which implementation should be used without modifying the code."
     },
     {
         "question": "What does the @ConversationScoped annotation in CDI do?",
@@ -1728,7 +1899,8 @@
             "Keeps the bean active for the duration of a user-defined conversation",
             "Shares the bean across the entire application"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@ConversationScoped` annotation keeps the bean active for the duration of a user-defined conversation. This scope is useful for maintaining state across multiple requests within a specific context."
     },
     {
         "question": "Which CDI annotation is used to implement event-based communication between components?",
@@ -1738,7 +1910,8 @@
             "@Observe",
             "@Produces"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Observe` annotation in CDI is used to implement event-based communication. It allows a method to listen for and respond to events triggered by components annotated with `@Event`."
     },
     {
         "question": "What is the purpose of the @Interceptor annotation in CDI?",
@@ -1748,7 +1921,8 @@
             "To register a bean in the container",
             "To scope a bean for the entire application"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Interceptor` annotation is used to define interceptors for cross-cutting concerns, such as logging, security, or transactions. Interceptors allow the execution of additional logic before or after business method invocations."
     },
     {
         "question": "Which file is used to configure CDI deployment descriptors?",
@@ -1758,7 +1932,8 @@
             "faces-config.xml",
             "persistence.xml"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `beans.xml` file is used to configure CDI deployment descriptors. It is required to enable CDI and allows for the declaration of beans, interceptors, decorators, and alternatives."
     },
     {
         "question": "What is the lifecycle of a bean with the @RequestScoped annotation?",
@@ -1768,18 +1943,20 @@
             "It lasts for the duration of a user session.",
             "It lasts indefinitely until explicitly destroyed."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A bean with the `@RequestScoped` annotation lasts for the duration of an HTTP request. It is created when the request starts and destroyed when the request ends."
     },
     {
         "question": "Which annotation is used to bind a bean to an EL (Expression Language) name?",
-        "code_snippet": "@Named(\"myBean\")\n@RequestScoped\npublic class MyBean {}",
+        "code_snippet": "@...(\"myBean\")\n@RequestScoped\npublic class MyBean {}",
         "options": [
             "@Named",
             "@ELName",
             "@Scoped",
             "@Context"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Named` annotation binds a bean to an EL (Expression Language) name. In this example, the bean can be accessed using the name `myBean` in JSF or other EL-compatible frameworks."
     },
     {
         "question": "Which CDI scope is specifically designed for use with JSF pages?",
@@ -1789,7 +1966,8 @@
             "@ViewScoped",
             "@ApplicationScoped"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@ViewScoped` annotation is specifically designed for use with JSF pages. It keeps the bean active as long as the user interacts with the same view, making it ideal for maintaining state across multiple requests within the same page."
     },
     {
         "question": "True or False: The CDI container manages the lifecycle of all managed beans, including their initialization and destruction.",
@@ -1797,7 +1975,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. The CDI container manages the lifecycle of all managed beans, including their initialization, dependency injection, and destruction. This simplifies application development and ensures proper resource management."
     },
     {
         "question": "What does SOA stand for?",
@@ -1807,7 +1986,8 @@
             "Service-Oriented Application",
             "System-On-Architecture"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "SOA stands for Service-Oriented Architecture. It is an architectural pattern that structures applications as a collection of services, each providing a specific functionality through defined interfaces."
     },
     {
         "question": "What is the primary purpose of Service-Oriented Architecture (SOA)?",
@@ -1817,7 +1997,8 @@
             "To centralize database management",
             "To eliminate network-based services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of Service-Oriented Architecture (SOA) is to organize and utilize distributed capabilities. SOA allows systems to communicate and work together through well-defined services, enabling modularity and scalability."
     },
     {
         "question": "Which of the following is NOT an example of a distributed system implementation?",
@@ -1827,7 +2008,8 @@
             "WCF",
             "HTML5"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "HTML5 is not an example of a distributed system implementation. CORBA, Java RMI, and WCF are frameworks and technologies used to implement distributed systems, while HTML5 is a markup language used for structuring web content."
     },
     {
         "question": "What is the main benefit of Web Services in SOA?",
@@ -1837,7 +2019,8 @@
             "They cannot be combined to achieve complex operations.",
             "They do not support interoperability."
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The main benefit of Web Services in SOA is their technology independence and platform agnosticism. They enable interoperability by using standard protocols like HTTP, SOAP, and REST, allowing different systems to communicate seamlessly."
     },
     {
         "question": "Which protocol is commonly used in Web Services for message exchange?",
@@ -1847,7 +2030,8 @@
             "FTP",
             "SMTP"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "SOAP (Simple Object Access Protocol) is a commonly used protocol in Web Services for exchanging structured information in a decentralized, distributed environment."
     },
     {
         "question": "What does WSDL stand for?",
@@ -1857,7 +2041,8 @@
             "Web Standard Descriptor Language",
             "Web Services Deployment Language"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "WSDL stands for Web Services Description Language. It is an XML-based language used to describe the functionality of a web service, including its operations, input/output messages, and endpoints."
     },
     {
         "question": "Which of the following is a feature of RESTful Web Services?",
@@ -1867,29 +2052,32 @@
             "Relies on UDDI for service discovery",
             "Uses SOAP as the main transport protocol"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A key feature of RESTful Web Services is their support for loose coupling via standard HTTP methods like GET, POST, PUT, and DELETE. They are not limited to XML and can use other formats like JSON, unlike SOAP-based services."
     },
     {
         "question": "Which annotation is used to mark a Java class as a JAX-WS Web Service?",
-        "code_snippet": "@WebService\npublic class MyService {\n    public String sayHello(String name) {\n        return \"Hello, \" + name;\n    }\n}",
+        "code_snippet": "@... \npublic class MyService {\n    public String sayHello(String name) {\n        return \"Hello, \" + name;\n    }\n}",
         "options": [
             "@Service",
             "@Endpoint",
             "@WebService",
             "@WSService"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@WebService` annotation is used to mark a Java class as a JAX-WS Web Service. It specifies that the class contains methods that can be exposed as web service operations."
     },
     {
         "question": "Which annotation marks a method inside a Web Service class to be exposed as a web operation?",
-        "code_snippet": "@WebMethod\npublic String sayHello(String name) {\n    return \"Hello, \" + name;\n}",
+        "code_snippet": "@... \npublic String sayHello(String name) {\n    return \"Hello, \" + name;\n}",
         "options": [
             "@Operation",
             "@WebMethod",
             "@ServiceMethod",
             "@WSOperation"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@WebMethod` annotation marks a method inside a Web Service class to be exposed as a web operation. It makes the method accessible to clients using the web service."
     },
     {
         "question": "What is the primary function of the UDDI in SOA?",
@@ -1899,7 +2087,8 @@
             "To validate XML documents",
             "To monitor Web Service traffic"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary function of UDDI (Universal Description, Discovery, and Integration) in SOA is to provide a directory for locating Web Services. It allows services to be registered, discovered, and used by other systems."
     },
     {
         "question": "What type of Web Service uses the JAX-RS API?",
@@ -1909,7 +2098,8 @@
             "CORBA-based Web Services",
             "RPC-based Web Services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The JAX-RS API is used to develop RESTful Web Services. It simplifies the creation of REST endpoints by providing annotations for HTTP methods and URI mappings."
     },
     {
         "question": "Which HTTP method is commonly used to retrieve data from a RESTful Web Service?",
@@ -1919,7 +2109,8 @@
             "DELETE",
             "GET"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The HTTP GET method is commonly used to retrieve data from a RESTful Web Service. It is a read-only operation and does not modify the resource on the server."
     },
     {
         "question": "What is the purpose of the @Path annotation in JAX-RS?",
@@ -1930,7 +2121,8 @@
             "Defines the input parameters of the method",
             "Marks the method as a web operation"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Path` annotation in JAX-RS specifies the URI path to the resource. In this example, the resource is accessible at `/hello`."
     },
     {
         "question": "What does the @Produces annotation specify in a RESTful Web Service?",
@@ -1940,7 +2132,8 @@
             "The URI path for the resource",
             "The format of the HTTP response header"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Produces` annotation specifies the MIME types that the method can produce as part of its response. For example, it can indicate that the method returns data in JSON or XML format."
     },
     {
         "question": "Which HTTP status code is returned for a successful GET request?",
@@ -1950,7 +2143,8 @@
             "500",
             "403"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The HTTP status code `200` indicates a successful GET request. It means the server successfully returned the requested data."
     },
     {
         "question": "What is the main advantage of using RESTful Web Services over SOAP-based Web Services?",
@@ -1960,7 +2154,8 @@
             "SOAP-based Web Services are faster.",
             "SOAP-based Web Services are more extensible."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "RESTful Web Services are easier to use and require less overhead compared to SOAP-based Web Services. They leverage standard HTTP methods and formats like JSON, making them lightweight and simpler to implement."
     },
     {
         "question": "What does the @GET annotation in JAX-RS signify?",
@@ -1970,7 +2165,8 @@
             "The method deletes a resource.",
             "The method processes HTTP PUT requests."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@GET` annotation in JAX-RS signifies that the method processes HTTP GET requests. It is typically used to retrieve data from a resource."
     },
     {
         "question": "Which annotation is used to specify the content type of a request body in a RESTful Web Service?",
@@ -1980,7 +2176,8 @@
             "@Path",
             "@RequestBody"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Consumes` annotation specifies the content types that a method can accept in the request body. For example, it can declare that the method accepts data in JSON or XML format."
     },
     {
         "question": "What is the purpose of the @ApplicationPath annotation in a JAX-RS application?",
@@ -1991,7 +2188,8 @@
             "Registers all the classes in the application",
             "Defines the MIME types supported by the application"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@ApplicationPath` annotation defines the base URI for all resources in a JAX-RS application. In this example, all endpoints would be prefixed with `/api`."
     },
     {
         "question": "True or False: RESTful Web Services require a WSDL document for service description.",
@@ -1999,7 +2197,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. RESTful Web Services do not require a WSDL document for service description. Instead, they use lightweight documentation standards like OpenAPI for describing APIs."
     },
     {
         "question": "What does JNDI stand for?",
@@ -2009,7 +2208,8 @@
             "Java Node Data Integration",
             "Java Name Descriptor Integration"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "JNDI stands for Java Naming and Directory Interface. It is a Java API for accessing naming and directory services to locate and use resources in an application."
     },
     {
         "question": "What is the primary purpose of JNDI in Java applications?",
@@ -2019,7 +2219,8 @@
             "To enable client-side scripting",
             "To handle multithreading in web applications"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of JNDI is to provide a standard way to locate and access resources, such as databases, EJBs, and configuration parameters, in a Java application."
     },
     {
         "question": "Which of the following is NOT an example of a naming service?",
@@ -2029,7 +2230,8 @@
             "LDAP",
             "JDBC Driver"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "A JDBC Driver is not a naming service. Naming services like DNS, RMI Registry, and LDAP provide mechanisms for associating names with objects or resources."
     },
     {
         "question": "What is the term used in JNDI for associating a name with an object?",
@@ -2039,7 +2241,8 @@
             "Contextualizing",
             "Referencing"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "In JNDI, the term 'binding' is used to describe the association of a name with an object in a naming or directory service."
     },
     {
         "question": "What is a context in JNDI?",
@@ -2049,7 +2252,8 @@
             "A thread-safe environment for running Java applications",
             "A hierarchical structure for managing session data"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "In JNDI, a context represents a set of name-to-object bindings using a specific naming convention. It provides methods to bind, lookup, and manage resources."
     },
     {
         "question": "Which JNDI operation is used to retrieve an object by its name?",
@@ -2059,7 +2263,8 @@
             "list",
             "rebind"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `lookup` operation in JNDI is used to retrieve an object by its name. It allows applications to locate resources such as DataSources or EJBs."
     },
     {
         "question": "What does the following code snippet do?",
@@ -2070,18 +2275,20 @@
             "Looks up a DataSource object by its JNDI name",
             "Deletes a DataSource from the JNDI context"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The code snippet looks up a `DataSource` object by its JNDI name (`jdbc/myDataSource`). The `lookup` method retrieves the DataSource registered under the specified name."
     },
     {
         "question": "Which JNDI annotation can be used to inject a DataSource directly into a Java class?",
-        "code_snippet": "@Resource(name=\"jdbc/sample\")\nprivate DataSource ds;",
+        "code_snippet": "@...(name=\"jdbc/sample\")\nprivate DataSource ds;",
         "options": [
             "@JNDI",
             "@Inject",
             "@Resource",
             "@DataSource"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Resource` annotation is used to inject a `DataSource` directly into a Java class. It simplifies accessing resources defined in the application server."
     },
     {
         "question": "What does the javax.sql.DataSource interface represent?",
@@ -2091,7 +2298,8 @@
             "A naming service implementation",
             "A data serialization framework"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `javax.sql.DataSource` interface represents a factory for database connections. It abstracts the details of connecting to a database and can include connection pooling."
     },
     {
         "question": "Which method in JNDI is used to associate a new name with an object?",
@@ -2101,7 +2309,8 @@
             "create",
             "add"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `bind` method in JNDI is used to associate a new name with an object. It creates a new binding and throws an exception if the name is already bound."
     },
     {
         "question": "What is the difference between bind and rebind methods in JNDI?",
@@ -2111,7 +2320,8 @@
             "bind is used for databases, while rebind is used for directories.",
             "bind is faster than rebind."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `bind` method creates a new binding and throws an exception if the name is already bound, while the `rebind` method overwrites an existing binding or creates a new one if it does not exist."
     },
     {
         "question": "True or False: JNDI can only be used to locate and access database connections.",
@@ -2119,7 +2329,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. JNDI is a general-purpose API that can be used to locate and access a variety of resources, including EJBs, JMS destinations, configuration settings, and directory services, in addition to database connections."
     },
     {
         "question": "What is the function of a connection pool in JNDI?",
@@ -2129,7 +2340,8 @@
             "To register database drivers dynamically",
             "To secure connections using encryption"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary function of a connection pool in JNDI is to reuse database connections for better performance. By pooling connections, the overhead of creating and closing connections for each request is avoided."
     },
     {
         "question": "Which JNDI method is used to modify an existing binding?",
@@ -2139,7 +2351,8 @@
             "update",
             "list"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `rebind` method in JNDI is used to modify an existing binding. It updates the object associated with the name or creates a new binding if it does not exist."
     },
     {
         "question": "Which XML file is commonly used to configure JNDI DataSources in Java EE applications?",
@@ -2149,7 +2362,8 @@
             "beans.xml",
             "faces-config.xml"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `glassfish-resources.xml` file is commonly used to configure JNDI DataSources in Java EE applications when deploying on GlassFish servers. It specifies details like resource names, connection pools, and properties."
     },
     {
         "question": "What is the advantage of using a DataSource over DriverManager in JDBC?",
@@ -2159,7 +2373,8 @@
             "DataSource does not need JNDI binding.",
             "DataSource offers better thread safety."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The main advantage of using a `DataSource` over `DriverManager` in JDBC is that `DataSource` supports connection pooling. This improves application performance by reusing database connections instead of creating new ones for each request."
     },
     {
         "question": "What is a JNDI InitialContext?",
@@ -2169,7 +2384,8 @@
             "A pool of database connections",
             "The primary configuration file for JNDI"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A JNDI `InitialContext` is the starting point for interacting with a naming service. It provides access to the naming service and methods to look up, bind, or unbind resources."
     },
     {
         "question": "Which method would you use to retrieve all bindings in a JNDI context?",
@@ -2179,7 +2395,8 @@
             "bind",
             "unbind"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `list` method in JNDI is used to retrieve all bindings in a context. It provides a listing of names and associated objects within the context."
     },
     {
         "question": "True or False: The @Resource annotation can be used to inject any type of JNDI resource, such as a DataSource or JMS connection.",
@@ -2187,7 +2404,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. The `@Resource` annotation can be used to inject various types of JNDI resources, such as a `DataSource`, JMS connection factory, or EJB references, simplifying resource access in enterprise applications."
     },
     {
         "question": "What is a common use case for JNDI in enterprise applications?",
@@ -2197,7 +2415,8 @@
             "Configuring and locating resources like databases and queues",
             "Scheduling asynchronous tasks"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "A common use case for JNDI in enterprise applications is configuring and locating resources such as databases, JMS queues, and EJBs. It provides a standard API for accessing these resources in a distributed environment."
     },
     {
         "question": "What is the primary purpose of Enterprise Java Beans (EJB)?",
@@ -2207,7 +2426,8 @@
             "To handle client-side scripting",
             "To create static web pages"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of Enterprise Java Beans (EJB) is to encapsulate business logic in distributed applications. EJBs handle tasks like transactions, security, and concurrency management, allowing developers to focus on business logic."
     },
     {
         "question": "What are the three types of Enterprise Beans?",
@@ -2217,7 +2437,8 @@
             "Session Beans, Stateless Beans, Service Beans",
             "Session Beans, Message-Driven Beans, Cache Beans"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The three types of Enterprise Beans are Session Beans, Message-Driven Beans, and Entity Beans. Session Beans handle business logic, Message-Driven Beans process asynchronous messages, and Entity Beans represent persistent data (though they have been largely replaced by JPA)."
     },
     {
         "question": "What type of EJB is designed for managing asynchronous messages?",
@@ -2227,7 +2448,8 @@
             "Entity Bean",
             "Stateless Bean"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Message-Driven Beans are designed to manage asynchronous messages. They process messages from JMS queues or topics, enabling decoupled communication between components."
     },
     {
         "question": "Which type of session bean maintains a conversational state with the client?",
@@ -2237,7 +2459,8 @@
             "Singleton Bean",
             "Message-Driven Bean"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Stateful Beans maintain a conversational state with the client. This means they store client-specific data for the duration of the session, which is useful for workflows or shopping cart implementations."
     },
     {
         "question": "True or False: Stateless session beans can maintain a client’s conversational state.",
@@ -2245,7 +2468,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. Stateless session beans do not maintain a client’s conversational state. Each method invocation is independent, making them ideal for lightweight, stateless operations."
     },
     {
         "question": "What is the main purpose of a Singleton session bean?",
@@ -2255,18 +2479,20 @@
             "To listen for JMS messages",
             "To encapsulate database queries"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The main purpose of a Singleton session bean is to handle concurrent access by multiple clients. It is initialized once per application and provides shared access to global resources."
     },
     {
         "question": "Which of the following annotations defines a Stateless session bean?",
-        "code_snippet": "@Stateless\npublic class MyBean {\n    public String greet(String name) {\n        return \"Hello, \" + name;\n    }\n}",
+        "code_snippet": "@...\npublic class MyBean {\n    public String greet(String name) {\n        return \"Hello, \" + name;\n    }\n}",
         "options": [
             "@Stateful",
             "@Stateless",
             "@Singleton",
             "@MessageDriven"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Stateless` annotation defines a Stateless session bean. These beans are used for operations that do not require maintaining a state across multiple method calls."
     },
     {
         "question": "What does the @PersistenceContext annotation do?",
@@ -2276,7 +2502,8 @@
             "Defines the scope of an EJB",
             "Enables asynchronous processing"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@PersistenceContext` annotation provides access to an `EntityManager`, which is used for interacting with the persistence context to manage entities and perform database operations."
     },
     {
         "question": "What is the function of the @EJB annotation in a session bean?",
@@ -2286,18 +2513,20 @@
             "It configures transactional attributes",
             "It specifies the bean's persistence context"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@EJB` annotation injects a reference to another EJB. It simplifies dependency injection by allowing beans to access other beans without manual lookup."
     },
     {
         "question": "Which of the following annotations is used to define a Remote interface for an EJB?",
-        "code_snippet": "@Remote\npublic interface MyRemoteBean {\n    String greet(String name);\n}",
+        "code_snippet": "@...\npublic interface MyRemoteBean {\n    String greet(String name);\n}",
         "options": [
             "@Local",
             "@Remote",
             "@EJB",
             "@SessionScoped"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Remote` annotation defines a Remote interface for an EJB. This allows the bean to be accessed remotely, enabling distributed application architecture."
     },
     {
         "question": "Which type of EJB is shared across the entire application and exists for its lifetime?",
@@ -2307,7 +2536,8 @@
             "Singleton Bean",
             "Message-Driven Bean"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "A Singleton Bean is shared across the entire application and exists for its lifetime. It is used for managing global application state or resources."
     },
     {
         "question": "What is the purpose of the @Asynchronous annotation in EJB?",
@@ -2317,7 +2547,8 @@
             "To register an EJB for remote access",
             "To initialize a singleton bean"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `@Asynchronous` annotation allows methods to be invoked asynchronously. It is commonly used to handle tasks that do not require an immediate response."
     },
     {
         "question": "Which of the following transactional attributes ensures a method is always executed within a new transaction?",
@@ -2327,7 +2558,8 @@
             "MANDATORY",
             "SUPPORTS"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `REQUIRES_NEW` transactional attribute ensures that a method is always executed within a new transaction, regardless of whether a transaction is already active."
     },
     {
         "question": "Which EJB feature is used to handle concurrent access to Singleton beans?",
@@ -2337,18 +2569,20 @@
             "State replication",
             "Lazy initialization"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Container-managed concurrency is used to handle concurrent access to Singleton beans. The EJB container manages locks and ensures thread safety for shared resources."
     },
     {
         "question": "What annotation is used to configure concurrency locks in Singleton beans?",
-        "code_snippet": "@Lock(LockType.WRITE)\npublic void updateState() {\n    // Logic here\n}",
+        "code_snippet": "@...(LockType.WRITE)\npublic void updateState() {\n    // Logic here\n}",
         "options": [
             "@Concurrency",
             "@Synchronized",
             "@Lock",
             "@ConcurrentAccess"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Lock` annotation is used to configure concurrency locks in Singleton beans. It can specify `LockType.WRITE` or `LockType.READ` to control access to methods."
     },
     {
         "question": "True or False: A Stateful session bean is removed after the client finishes the session.",
@@ -2356,7 +2590,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. A Stateful session bean maintains state for a specific client and is removed when the client finishes the session or explicitly ends it."
     },
     {
         "question": "Which method is invoked when a Stateful session bean is ready to be removed?",
@@ -2366,7 +2601,8 @@
             "@Remove",
             "@Shutdown"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `@Remove` annotation marks a method that is invoked when a Stateful session bean is ready to be removed. This allows the bean to clean up resources before being destroyed."
     },
     {
         "question": "What is the purpose of the EntityManager in EJB?",
@@ -2376,7 +2612,8 @@
             "To handle asynchronous processing",
             "To enable distributed communication"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `EntityManager` in EJB provides CRUD (Create, Read, Update, Delete) operations on entities. It acts as the primary interface for interacting with the persistence context, allowing developers to manage entities and their lifecycle."
     },
     {
         "question": "What is the difference between a Local and a Remote interface in EJB?",
@@ -2386,7 +2623,8 @@
             "A Remote interface provides better performance than a Local interface.",
             "A Remote interface is used only for stateless beans."
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A Local interface in EJB is used for intra-application communication, while a Remote interface is used for inter-application communication. Local interfaces are optimized for performance, as they avoid the overhead of remote communication."
     },
     {
         "question": "Which lifecycle callback is used to perform initialization in a Stateful session bean?",
@@ -2396,7 +2634,8 @@
             "@Startup",
             "@Begin"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@PostConstruct` annotation is used to perform initialization in a Stateful session bean. It marks a method that should be invoked after dependency injection is complete."
     },
     {
         "question": "What is the main purpose of JMS in Java applications?",
@@ -2406,7 +2645,8 @@
             "To handle HTTP requests and responses",
             "To implement RESTful web services"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The main purpose of Java Message Service (JMS) is to facilitate messaging between software components. It provides a standard way to create, send, receive, and read messages in a distributed environment."
     },
     {
         "question": "Which of the following is NOT a characteristic of JMS?",
@@ -2416,7 +2656,8 @@
             "Loosely coupled",
             "Tightly coupled"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "JMS is not tightly coupled. It is designed to be loosely coupled, asynchronous, and reliable, allowing components to communicate without direct dependencies."
     },
     {
         "question": "What are the two main messaging models supported by JMS?",
@@ -2426,7 +2667,8 @@
             "Synchronous and Asynchronous",
             "Stream-Based and Text-Based"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The two main messaging models supported by JMS are Point-to-Point (PTP) and Publish-Subscribe (Pub-Sub). PTP involves a single producer and a single consumer, while Pub-Sub allows multiple consumers to receive messages from a single producer."
     },
     {
         "question": "In the Point-to-Point (PTP) messaging model, what is the main characteristic?",
@@ -2436,7 +2678,8 @@
             "A message has multiple consumers",
             "Messages are delivered in real-time only"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "In the Point-to-Point (PTP) messaging model, messages are retained until they are consumed or expired. Each message is delivered to a single consumer, ensuring reliable communication."
     },
     {
         "question": "What does the 'durable subscription' feature in the Publish-Subscribe model provide?",
@@ -2446,7 +2689,8 @@
             "Reduction in system overhead",
             "Enhanced encryption for subscriber messages"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The 'durable subscription' feature in the Publish-Subscribe model ensures that messages are persistently delivered to subscribers who were offline at the time of publication. This guarantees message delivery once the subscriber reconnects."
     },
     {
         "question": "What is the role of the 'connection factory' in JMS?",
@@ -2456,18 +2700,20 @@
             "To handle message encryption",
             "To store queues and topics"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The connection factory in JMS is responsible for creating connections to the provider. It serves as an entry point for clients to interact with the messaging system."
     },
     {
         "question": "What annotation is used to inject a connection factory in JMS?",
-        "code_snippet": "@Resource(lookup = \"MyConnectionFactory\")\nprivate ConnectionFactory connectionFactory;",
+        "code_snippet": "@...(lookup = \"MyConnectionFactory\")\nprivate ConnectionFactory connectionFactory;",
         "options": [
             "@Inject",
             "@Resource",
             "@JMSConnection",
             "@Factory"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `@Resource` annotation is used to inject a connection factory in JMS. It allows the developer to specify the JNDI lookup name of the connection factory for resource injection."
     },
     {
         "question": "What method is used to receive messages synchronously in JMS?",
@@ -2477,7 +2723,8 @@
             "receive",
             "onMessage"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The `receive` method is used to receive messages synchronously in JMS. It blocks until a message is available or the timeout expires."
     },
     {
         "question": "How does an asynchronous message consumer process messages in JMS?",
@@ -2487,7 +2734,8 @@
             "By using a CompletionListener",
             "By polling the message queue"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "An asynchronous message consumer in JMS processes messages by registering a `MessageListener`. The listener's `onMessage` method is automatically called when a message arrives."
     },
     {
         "question": "Which part of a JMS message contains routing and delivery information?",
@@ -2497,7 +2745,8 @@
             "Properties",
             "Metadata"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `Header` of a JMS message contains routing and delivery information, such as the message ID, timestamp, and destination."
     },
     {
         "question": "What is the purpose of message selectors in JMS?",
@@ -2507,7 +2756,8 @@
             "To encrypt sensitive message content",
             "To handle message acknowledgment"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "Message selectors in JMS are used to filter messages based on SQL-like expressions. This allows consumers to retrieve only the messages that match specific criteria."
     },
     {
         "question": "Which of the following methods is used for transactional message sending in JMS?",
@@ -2517,7 +2767,8 @@
             "acknowledge",
             "All of the above"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "In JMS transactions, `commit` is used to finalize changes, `rollback` to undo changes, and `acknowledge` to confirm message delivery. All these methods are essential for transactional messaging."
     },
     {
         "question": "True or False: Temporary destinations in JMS last only for the duration of the connection in which they were created.",
@@ -2525,7 +2776,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. Temporary destinations in JMS, such as temporary queues or topics, last only for the duration of the connection in which they were created. Once the connection is closed, the temporary destinations are deleted."
     },
     {
         "question": "What does the following code snippet achieve in JMS?",
@@ -2536,7 +2788,8 @@
             "Receives a message from a queue",
             "Registers a message listener"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The code snippet creates and sends a `TextMessage` to a queue. The `JMSProducer` is used to send messages, and the queue specifies the destination."
     },
     {
         "question": "Which JMS feature ensures that a message is delivered to only one consumer?",
@@ -2546,7 +2799,8 @@
             "Publish-Subscribe model",
             "Message persistence"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The Point-to-Point (PTP) model in JMS ensures that a message is delivered to only one consumer. Each message is consumed by a single receiver, guaranteeing exclusive delivery."
     },
     {
         "question": "What is the purpose of the JMSContext object?",
@@ -2556,7 +2810,8 @@
             "To configure message priority levels",
             "To filter messages"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `JMSContext` object encapsulates both the connection and session in JMS, simplifying the API for messaging operations. It provides a single interface for producing, consuming, and managing messages."
     },
     {
         "question": "Which feature of JMS allows delayed delivery of messages?",
@@ -2566,7 +2821,8 @@
             "Message persistence",
             "Transaction scope"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `delivery delay` feature in JMS allows delayed delivery of messages. It specifies a time interval after which the message will be delivered to the consumer."
     },
     {
         "question": "What is the primary purpose of a QueueBrowser in JMS?",
@@ -2576,7 +2832,8 @@
             "To manage the lifecycle of messages in a queue",
             "To delete expired messages from a queue"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary purpose of a `QueueBrowser` in JMS is to browse the header values of messages in a queue without removing them. It allows for inspection of messages to determine their contents or metadata."
     },
     {
         "question": "Which JMS delivery mode ensures that messages survive application restarts?",
@@ -2586,7 +2843,8 @@
             "Temporary",
             "Durable"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `Persistent` delivery mode ensures that messages survive application restarts by saving them to durable storage until they are successfully delivered."
     },
     {
         "question": "What is a Message-Driven Bean (MDB) in JMS?",
@@ -2596,7 +2854,8 @@
             "A factory for creating message producers",
             "A specialized type of topic in JMS"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "A `Message-Driven Bean` (MDB) in JMS is an asynchronous message consumer that processes messages from a queue or topic. MDBs are used to decouple message processing from the client that sends the message."
     },
     {
         "question": "What is the main purpose of MicroProfile Security in microservices?",
@@ -2606,7 +2865,8 @@
             "To provide authentication and authorization using JWT",
             "To monitor service availability"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The main purpose of MicroProfile Security is to provide authentication and authorization using JWT (JSON Web Tokens). It simplifies securing microservices by integrating identity and access management."
     },
     {
         "question": "What are the key security concepts for protecting microservices?",
@@ -2616,7 +2876,8 @@
             "Authentication, Monitoring, Logging",
             "Authorization, Encryption, Caching"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The key security concepts for protecting microservices are authentication, authorization, and session management. Authentication verifies user identity, authorization enforces access control, and sessions track user interactions."
     },
     {
         "question": "Why are tokens used in microservices security?",
@@ -2626,7 +2887,8 @@
             "To store and propagate the security context",
             "To enable asynchronous service calls"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "Tokens are used in microservices security to store and propagate the security context. They encapsulate user identity and access permissions, enabling secure communication across services."
     },
     {
         "question": "What is the role of an identity provider in a microservice architecture?",
@@ -2636,7 +2898,8 @@
             "To perform distributed logging across services",
             "To monitor service health for security breaches"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The role of an identity provider in a microservice architecture is to manage the authentication process and issue tokens. It serves as a central authority for verifying user identity and granting access to services."
     },
     {
         "question": "Which of the following is NOT a claim in a JWT?",
@@ -2646,7 +2909,8 @@
             "sub",
             "hash"
         ],
-        "answer": 3
+        "answer": 3,
+        "explanation": "The `hash` claim is not a standard claim in JWT. Standard claims include `exp` (expiration), `iss` (issuer), and `sub` (subject), among others."
     },
     {
         "question": "What are the three main components of a JWT?",
@@ -2656,7 +2920,8 @@
             "Header, Payload, Signature",
             "Header, Body, Algorithm"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "A JWT consists of three main components: the Header, which specifies the token type and signing algorithm; the Payload, which contains claims; and the Signature, which ensures the token's integrity."
     },
     {
         "question": "True or False: JWT tokens are signed to ensure integrity but may not always be encrypted.",
@@ -2664,7 +2929,8 @@
             "True",
             "False"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "True. JWT tokens are signed to ensure integrity, allowing the recipient to verify that the token was not tampered with. However, they are not always encrypted, so the payload can be readable if not encrypted."
     },
     {
         "question": "What is contained in the payload section of a JWT?",
@@ -2674,7 +2940,8 @@
             "Claims and custom data about the user",
             "The token's key identifier (kid)"
         ],
-        "answer": 2
+        "answer": 2,
+        "explanation": "The payload section of a JWT contains claims and custom data about the user. This section is base64-encoded and includes both standard and custom claims."
     },
     {
         "question": "Which field in the JWT header defines the signing algorithm used?",
@@ -2684,7 +2951,8 @@
             "iss",
             "aud"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `alg` field in the JWT header specifies the algorithm used to sign the token, such as `HS256` or `RS256`."
     },
     {
         "question": "What is the purpose of the groups claim in a JWT?",
@@ -2694,7 +2962,8 @@
             "To store the token's expiration details",
             "To provide the token's unique identifier"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The `groups` claim in a JWT defines the user's roles for Role-Based Access Control (RBAC). It is commonly used in MicroProfile Security for access management."
     },
     {
         "question": "Which of these algorithms is NOT recommended for signing a JWT in MicroProfile Security?",
@@ -2704,7 +2973,8 @@
             "ES256",
             "PS256"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "The `HS256` algorithm is not recommended for signing JWTs in MicroProfile Security because it uses a shared secret, which is less secure than asymmetric algorithms like `RS256` and `ES256`."
     },
     {
         "question": "What is the primary benefit of using MicroProfile JWT in a microservices architecture?",
@@ -2714,7 +2984,8 @@
             "It reduces communication overhead between services",
             "It automatically creates tokens for users"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The primary benefit of using MicroProfile JWT is its standardization of Role-Based Access Control (RBAC), which simplifies authentication and authorization across microservices."
     },
     {
         "question": "True or False: Services using MicroProfile JWT must store user session data on the server.",
@@ -2722,7 +2993,8 @@
             "True",
             "False"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "False. Services using MicroProfile JWT do not store session data on the server. The token itself contains all the necessary information, allowing stateless authentication."
     },
     {
         "question": "What is a key feature of JWT tokens in MicroProfile Security?",
@@ -2732,7 +3004,8 @@
             "They ensure tokens are always kept confidential",
             "They store authentication keys for secure access"
         ],
-        "answer": 0
+        "answer": 0,
+        "explanation": "JWT tokens in MicroProfile Security allow services to introspect tokens remotely or locally to extract claims and validate the token's authenticity."
     },
     {
         "question": "What is required to verify a JWT issued by a trusted provider?",
@@ -2742,7 +3015,8 @@
             "The token's algorithm and payload",
             "Only the token's signature"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "To verify a JWT issued by a trusted provider, the token's claims and public key are required. The public key is used to verify the signature, ensuring the token's integrity."
     },
     {
         "question": "What does the following annotation achieve in a controller?",
@@ -2753,7 +3027,8 @@
             "Overrides the default token signature",
             "Verifies the token signature in the controller"
         ],
-        "answer": 1
+        "answer": 1,
+        "explanation": "The annotation injects a custom claim value from the JWT into the controller. This allows the application to access specific claims directly in the code."
     },
     {
         "question": "What does the @LoginConfig annotation specify?",
@@ -2763,6 +3038,121 @@
             "The claims required for user sessions",
             "The default audience for JWT tokens"
         ],
-        "answer": 1
-    }
+        "answer": 1,
+        "explanation": "The `@LoginConfig` annotation specifies the authentication mechanism for the application, such as BASIC or FORM-based authentication."
+    },
+    {
+        "question": "What should be written in the blank space, such that the input text will set the 'title' property of a managed bean exposed with the name 'book'?",
+        "code_snippet": "//In a xhtml file\n<h:inputText value='______'/>",
+        "options": [
+            "#{book.title}",
+            "#{book_title}",
+            "#{book/title}",
+            "#{book.title[0]}"
+        ],
+        "answer": 0,
+        "explanation": "To bind the input text to the `title` property of a managed bean named `book`, the correct syntax is `#{book.title}`. This is the correct EL (Expression Language) syntax for accessing properties in JSF."
+    },
+    {
+        "question": "Which statements, regarding JSF converters, are correct?",
+        "options": [
+            "They can be registered in faces-config.xml to become active.",
+            "They must be annotated with @Component to work.",
+            "They must implement the Converter interface.",
+            "They need to extend a specific Converter base class."
+        ],
+        "answer": 2,
+        "explanation": "JSF converters must implement the `Converter` interface to handle object-to-string and string-to-object conversions. While registration in `faces-config.xml` or using annotations like `@FacesConverter` is valid, it is not required to extend any base class."
+    },
+    {
+        "question": "The design pattern used in the JSF component rendering model is:",
+        "options": [
+            "Observer",
+            "MVC (Model-View-Controller)",
+            "Strategy",
+            "Factory"
+        ],
+        "answer": 2,
+        "explanation": "JSF uses the `Strategy` design pattern for its rendering model, allowing different renderers to handle specific component types without affecting the core logic."
+    },
+    {
+        "question": "Which statements, regarding the front controller design pattern, are correct?",
+        "options": [
+            "In Java EE, a front controller is typically implemented as a servlet.",
+            "It provides a centralized entry point for handling requests.",
+            "It enables dynamic request routing using annotations.",
+            "It distributes request handling logic to multiple controllers."
+        ],
+        "answer": 1,
+        "explanation": "The front controller design pattern provides a centralized entry point for handling requests. In Java EE, it is commonly implemented using a servlet or a filter, such as the `FacesServlet` in JSF."
+    },
+    {
+        "question": "What tag should be written in the blank space, in order to have a valid JSF navigation rule?",
+        "code_snippet": "<navigation-rule>\n<from-view-id>/firstPage.xhtml</from-view-id>\n<navigation-case>\n<...>success</...>\n<to-view-id>/secondPage.xhtml</to-view-id>\n</navigation-case>\n</navigation-rule>",
+        "options": [
+            "outcome",
+            "case",
+            "command",
+            "from-outcome"
+        ],
+        "answer": 3,
+        "explanation": "The `from-outcome` tag specifies the outcome value in a JSF navigation case. It determines the navigation flow based on the action result or outcome string."
+    },
+    {
+        "question": "The functionality of an inputText JSF component is implemented in a class of the following types:",
+        "options": [
+            "UIInput",
+            "UIOutput",
+            "ComponentBase",
+            "ValueHolder"
+        ],
+        "answer": 0,
+        "explanation": "UIInput is the base class for all JSF components that accept user input. It implements the core functionality for input processing."
+    },
+    {
+        "question": "The functionality of an inputText JSF component is implemented in a class of the following types:",
+        "options": [
+            "EditableValueHolder",
+            "UIBase",
+            "RenderedValueHolder",
+            "InputBase"
+        ],
+        "answer": 0,
+        "explanation": "EditableValueHolder is an interface that defines methods for editable components, which are responsible for holding and processing values in JSF."
+    },
+    {
+        "question": "What is the short name of the class that should be written in the blank space, in order to have a syntactically valid JSF validator method?",
+        "code_snippet": "public void validateName(FacesContext context, UIComponent component, Object value) {\n    String dogName = (String) value;\n    if (dogName.isEmpty()) {\n        ((UIInput) component).setValid(false);\n        context.addMessage(component.getClientId(context), new __________(\"Bad dog!\"));\n    }\n}",
+        "options": [
+            "FacesMessage",
+            "UIMessage",
+            "ValidationMessage",
+            "ErrorMessage"
+        ],
+        "answer": 0,
+        "explanation": "FacesMessage is the correct class to use when adding validation messages in JSF. It encapsulates the message details, including its severity level and content, making it appropriate for this context."
+    },
+    {
+        "question": "Which of the following represents a standard CDI or JSF annotation that could be used to specify a JSF managed bean scope?",
+        "options": [
+            "@ResponseScoped",
+            "@SessionScoped",
+            "@AjaxScoped",
+            "@BeanScoped"
+        ],
+        "answer": 1,
+        "explanation": "@SessionScoped is a standard JSF annotation that specifies the bean's scope lasts for the duration of a user's session."
+    },
+    {
+        "question": "What is the short name of the annotation that should be written in the blank space, such that the instance of the bean below is accessible in the JSF pages with the name 'studentBean'?",
+        "code_snippet": "@ViewScoped\n_________\npublic class StudentBean { }",
+        "options": [
+            "@FacesBean",
+            "@Controller",
+            "@ManagedBean",
+            "@Publish"
+        ],
+        "answer": 2,
+        "explanation": "@ManagedBean is the correct annotation in JSF for making a bean accessible in the JSF pages. When applied, the bean is automatically available under the name 'studentBean' in the EL (Expression Language) context."
+    }        
 ]

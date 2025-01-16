@@ -78,7 +78,7 @@ function displayQuestion() {
     button.textContent = option;
     button.classList.add('option-button');
     button.addEventListener('click', () =>
-      handleAnswer(newIndex === correctIndexAfterShuffle, button, feedbackElement, correctIndexAfterShuffle)
+      handleAnswer(newIndex === correctIndexAfterShuffle, button, feedbackElement, correctIndexAfterShuffle, question)
     );
     optionsElement.appendChild(button);
   });
@@ -88,8 +88,10 @@ function displayQuestion() {
   }
 }
 
-function handleAnswer(isCorrect, button, feedbackElement, index) {
+function handleAnswer(isCorrect, button, feedbackElement, index, question) {
   const allOptions = document.querySelectorAll('.option-button');
+  const explanationElement = document.getElementById('explanation-display');
+
   allOptions.forEach((btn) => btn.disabled = true);
 
   if (isCorrect) {
@@ -105,6 +107,9 @@ function handleAnswer(isCorrect, button, feedbackElement, index) {
 
     allOptions[index].classList.add('correct');
   }
+  
+  explanationElement.textContent = `${question.explanation}`;
+  explanationElement.classList.remove('hidden');
 
   document.getElementById('score_current').innerHTML = `Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong>`;
 
