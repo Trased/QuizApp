@@ -3154,5 +3154,1204 @@
         ],
         "answer": 2,
         "explanation": "@ManagedBean is the correct annotation in JSF for making a bean accessible in the JSF pages. When applied, the bean is automatically available under the name 'studentBean' in the EL (Expression Language) context."
-    }        
+    },
+    {
+        "question": "What should be written in the blank space in order to define an EJB that processes messages asynchronously?",
+        "code_snippet": "@ ....(mappedName=\"destination\")\npublic class MyEnterpriseBean implements MessageListener{\n.......\n}",
+        "options": [
+            "JMSContext",
+            "Stateless",
+            "MessageDriven",
+            "EventDriven"
+        ],
+        "answer": 2,
+        "explanation": "The `@MessageDriven` annotation is used to define a message-driven bean (MDB) in EJB. MDBs are designed to process messages asynchronously from a messaging system, such as JMS."
+    },
+    {
+        "question": "Which of the following statements regarding JMS selector are correct:",
+        "options": [
+            "Allows a message producer to specify the nature of its messages.",
+            "Can be specified when you create a consumer.",
+            "Can be specified when you create a producer.",
+            "May use the message body content in order to specify the filter."
+        ],
+        "answer": 1,
+        "explanation": "A JMS selector can be specified when creating a consumer. It uses a SQL-like syntax to filter messages based on message properties, ensuring only relevant messages are received by the consumer."
+    },
+    {
+        "question": "Which of the following types describe Destination administrative objects:",
+        "options": [
+            "Topic",
+            "MessagePool",
+            "Channel",
+            "Selector"
+        ],
+        "answer": 0,
+        "explanation": "A `Topic` is one of the two types of Destination objects in JMS. Topics are used for publish-subscribe messaging, allowing multiple consumers to receive messages from the same source."
+    },
+    {
+        "question": "What should be written in the blank space in order to produce a message:",
+        "code_snippet": "JMSProducer producer = context.createProducer();\nproducer. ______(destination, message);",
+        "options": [
+            "send",
+            "stream",
+            "enqueue",
+            "out"
+        ],
+        "answer": 0,
+        "explanation": "The `send` method is used in JMS to produce a message and send it to the specified destination. It is the standard method for message delivery in JMS."
+    },
+    {
+        "question": "What should be written in the blank space in order to consume message in a synchronus manner:",
+        "code_snippet": "JMSConsumer consumer = context.createConsumer(destination);\nMessage message = consumer. _____();",
+        "options": [
+            "receive",
+            "stream",
+            "consume",
+            "dequeue"
+        ],
+        "answer": 0,
+        "explanation": "The `receive` method is used to consume messages in a synchronous manner in JMS. It blocks the consumer until a message is available or the timeout expires."
+    },
+    {
+        "question": "What could be written in the blank space in order to complete a transactional JMS session:",
+        "code_snippet": "JMSContext context = connectionFactory.createContext(JMSContext.SESSION_TRANSACTED);\ncontext. ____();",
+        "options": [
+            "acknowledge",
+            "commit",
+            "complete",
+            "endTransaction"
+        ],
+        "answer": 1,
+        "explanation": "The `commit` method is used to complete a transactional JMS session. It commits all the messages sent or received during the session as part of a transaction."
+    },
+    {
+        "question": "Which of the following statements regarding JMS (Java Message Service) are correct:",
+        "options": [
+            "Represents the default messaging implementation on the Java platform",
+            "Is specific to AMQP protocol",
+            "Defines a common set of Java interfaces regarding messaging.",
+            "Is based on the reactive programming paradigm."
+        ],
+        "answer": 2,
+        "explanation": "JMS defines a common set of Java interfaces and classes for messaging, providing a standard way to handle message-oriented middleware in Java applications."
+    },
+    {
+        "question": "A local transaction that determines the success or failure of a saga is called:",
+        "options": [
+            "Trigger",
+            "Pivot",
+            "Coordinator",
+            "Critical"
+        ],
+        "answer": 1,
+        "explanation": "In the Saga pattern, the `Pivot` is the local transaction that determines the overall success or failure of the saga. If the pivot transaction fails, compensating transactions are executed."
+    },
+    {
+        "question": "Eventual consistency is a form of:",
+        "options": [
+            "Weak consistency",
+            "Casual consistency",
+            "Strong consistency",
+            "Monotonic consistency"
+        ],
+        "answer": 0,
+        "explanation": "Eventual consistency is a form of weak consistency in distributed systems, where updates to a system will propagate eventually, but not immediately, ensuring that all nodes eventually converge to the same state."
+    },
+    {
+        "question": "In order to ensure that every node instance is always allowing read or writes, regardless of the state of the network, we must sacrifice:",
+        "options": [
+            "Consistency",
+            "Performance",
+            "Availability",
+            "Isolation"
+        ],
+        "answer": 0,
+        "explanation": "According to the CAP theorem, to ensure high availability in distributed systems, consistency must be sacrificed when there is a network partition."
+    },
+    {
+        "question": "Which of the following phases are part of the Two Phase Commit(2PC) pattern:",
+        "options": [
+            "Lock",
+            "Validate",
+            "Commit",
+            "Synchronize"
+        ],
+        "answer": 2,
+        "explanation": "The `Commit` phase is a critical part of the Two-Phase Commit (2PC) protocol, where the transaction coordinator instructs all participants to finalize the transaction after ensuring all participants are prepared."
+    },
+    {
+        "question": "Which of the following characteristics are specific to a microservice-based application?",
+        "options": [
+            "Components usually share the same databases",
+            "Ensuring database transactions isolation may be difficult",
+            "Ensuring database transactions consistency may be difficult",
+            "It can be easily deployed."
+        ],
+        "answer": 2,
+        "explanation": "In microservice-based applications, ensuring database transactions consistency can be difficult because each microservice often manages its own database, leading to challenges in maintaining a consistent state across multiple services."
+    },
+    {
+        "question": "A microservice should be:",
+        "options": [
+            "Implemented as a singleton",
+            "Exposing a standard interface",
+            "Integrated with the other microservices",
+            "Sharing data with sister microservices"
+        ],
+        "answer": 1,
+        "explanation": "A microservice should expose a standard interface, typically via REST or other protocols, to allow other microservices or clients to interact with it in a loosely coupled manner."
+    },
+    {
+        "question": "Which type of a service client implementation is preferred in situations when service availability is low or overloaded with demand?",
+        "options": [
+            "Asynchronous",
+            "Synchronous"
+        ],
+        "answer": 0,
+        "explanation": "An asynchronous client implementation allows requests to be made without blocking the execution flow, making it ideal for handling situations with low service availability or high demand."
+    },
+    {
+        "question": "What should be written in the blank space, in order to obtain a reference to an object that counts invocations to service methods?",
+        "code_snippet": "public class Controller {\n @Inject\n _______(name = \"counter\")\nprivate Counter counter;\n}",
+        "options": [
+            "@Metric",
+            "@Histogram",
+            "@TelemetryData",
+            "@Counter"
+        ],
+        "answer": 0,
+        "explanation": "The `@Metric` annotation is used to inject a metric object, such as a counter, that tracks statistics or invocations of service methods in microservices."
+    },
+    {
+        "question": "In order to deal with unexpected failures, a microservice API should offer support for:",
+        "options": [
+            "Report diagnostics (telemetry data)",
+            "Web sessions passivation and reactivation",
+            "Replicate the information in a database shared by all services",
+            "Report users that overload the systems"
+        ],
+        "answer": 0,
+        "explanation": "Reporting diagnostics and telemetry data allows microservices to monitor their health and recover from unexpected failures by providing essential operational insights."
+    },
+    {
+        "question": "The representation of a UISelectOne component could be described by the following JSF classes:",
+        "options": [
+            "HtmlSelectOneListbox",
+            "SelectOneRadio",
+            "SelectOneListbox",
+            "SelectOneMenu"
+        ],
+        "answer": 0,
+        "explanation": "The `HtmlSelectOneListbox` class represents the UISelectOne component in JSF, which is used for rendering a list box for single selection."
+    },
+    {
+        "question": "Regarding Web applications, the default Java EE approach is:",
+        "options": [
+            "client-centric",
+            "server-centric"
+        ],
+        "answer": 1,
+        "explanation": "Java EE applications are server-centric, meaning most of the processing logic happens on the server side, with the client handling minimal processing."
+    },
+    {
+        "question": "In the context of Java programming, EJB stands for:",
+        "options": [
+            "Electrical Junction Box",
+            "Emergency Java Backup",
+            "Easy JoB",
+            "Enterprise Java Beans"
+        ],
+        "answer": 3,
+        "explanation": "EJB stands for Enterprise Java Beans, which is a specification for building distributed, transactional, and portable applications in Java."
+    },
+    {
+        "question": "Which MIME type should be used by a servlet, in order to inform the client that it returns an HTML page?",
+        "options": [
+            "application/html",
+            "text/html",
+            "html/text",
+            "servlet/html"
+        ],
+        "answer": 1,
+        "explanation": "The `text/html` MIME type is used to indicate that the servlet returns an HTML page. It is a standard MIME type for web content."
+    },
+    {
+        "question": "An application that must be available 24/7 has the property of:",
+        "options": [
+            "Mission critical",
+            "Scalable",
+            "High availability",
+            "Clustered"
+        ],
+        "answer": 2,
+        "explanation": "High availability refers to systems that are operational and accessible 24/7, ensuring minimal downtime even during failures."
+    },
+    {
+        "question": "In the context of enterprise programming, which features ensure the portability of an application:",
+        "options": [
+            "Deployment of the same codebase on application servers from different suppliers",
+            "The ability to use various database management systems, without altering the codebase",
+            "The ability to compile the codebase for any operating system",
+            "Running on various processor architectures and operating systems"
+        ],
+        "answer": 0,
+        "explanation": "Portability in enterprise programming is achieved when the same codebase can be deployed across different application servers without modifications, ensuring compatibility with Java EE specifications."
+    },
+    {
+        "question": "Considering the servlet annotation below, what should be written in the blank space so that the invocation\nhttp://localhost:8080/App/beatae\nsends a request to the servlet?",
+        "code_snippet": "@WebServlet( ______ = {\"/beatae\"})",
+        "options": [
+            "dispatchRoute",
+            "query",
+            "mapped",
+            "value"
+        ],
+        "answer": 3,
+        "explanation": "The `value` attribute in the `@WebServlet` annotation specifies the URL pattern that the servlet will handle. In this case, `/beatae` maps requests to the servlet."
+    },
+    {
+        "question": "JSP (Java Server Pages) components are part of the following tier:",
+        "options": [
+            "Bussiness",
+            "Client",
+            "Web",
+            "Model"
+        ],
+        "answer": 2,
+        "explanation": "JSP components belong to the Web tier of a Java EE application, responsible for generating dynamic web content and handling presentation logic."
+    },
+    {
+        "question": "What should be written in the blank space in order to create an attribute named \"version\", shared at session level?",
+        "code_snippet": "public void doGet(HttpServletRequest request, HttpServletResponse response) {\nHttpSession session = request.getSession();\nsession. _____(\"version\", \"1.0\");\n // the rest of the doGet method",
+        "options": [
+            "publish",
+            "share",
+            "setAttribute",
+            "setParameter"
+        ],
+        "answer": 2,
+        "explanation": "The `setAttribute` method is used to store an attribute in the session scope, making it accessible across the user's session."
+    },
+    {
+        "question": "In a Java EE project, the application descriptor web.xml is located in the following directory:",
+        "options": [
+            "properties",
+            "WEB-INF",
+            "META-INF",
+            "root"
+        ],
+        "answer": 1,
+        "explanation": "The `web.xml` file is the deployment descriptor for Java EE web applications and is located in the `WEB-INF` directory."
+    },
+    {
+        "question": "What should be written in the blank space, in order to use the custom tag aut from the library as <nihil:aut>?",
+        "code_snippet": "<%@ taglib uri=\"/WEB-INF/tlds/mylibrary\" ________=\"nihil\" %>",
+        "options": [
+            "include",
+            "prefix",
+            "suffix",
+            "namespace"
+        ],
+        "answer": 1,
+        "explanation": "The `prefix` attribute in the `taglib` directive specifies the custom tag namespace prefix to be used in JSP files, such as `nihil` in this case."
+    },
+    {
+        "question": "Which statements, regarding JSTL (Java Standard Tag Libraries) technology, are correct?",
+        "options": [
+            "In order to use a standard tag, its class handler must be mapped using a tag library descriptor (TLD)",
+            "Java EE application server include by default implementations of these tags",
+            "JSTL can be used in JSP pages, but not in JSP fragments (.tag files)"
+        ],
+        "answer": 1,
+        "explanation": "Java EE application servers typically include implementations of JSTL tags by default, making them readily available for use in web applications."
+    },
+    {
+        "question": "Which statements, regarding JSTL (Java Standard Tag Libraries) technology, are correct?",
+        "options": [
+            "In order to use a standard tag, its class handler must be mapped using a tag library descriptor (TLD)",
+            "A JSTL library contains JSP custom tags",
+            "JSTL can be used in JSP pages, but not in JSP fragments (.tag files)"
+        ],
+        "answer": 1,
+        "explanation": "JSTL libraries consist of custom tags that provide standard solutions for common tasks in JSP development, such as iteration and conditionals."
+    },
+    {
+        "question": "What reference to a predefined JSP object should be written in the blank space, in order to include the message in the response sent to the client?",
+        "code_snippet": "<%\nString message = \"voluptatibus\";\n__________.println(message);\n%>",
+        "options": [
+            "out",
+            "system",
+            "console",
+            "command"
+        ],
+        "answer": 0,
+        "explanation": "The `out` object in JSP is used to write content to the HTTP response. In this case, it prints the message `voluptatibus` to the client's browser."
+    },
+    {
+        "question": "What type of listener should be created in order to be informed about a session being passivated?",
+        "options": [
+            "HttpSessionActivationListener",
+            "ServletContextListener",
+            "AsyncListener",
+            "HttpSessionPassivationListener"
+        ],
+        "answer": 0,
+        "explanation": "The `HttpSessionActivationListener` interface allows objects to be notified when a session is passivated or activated, typically in distributed environments."
+    },
+    {
+        "question": "Which statements, regarding JSP (Java Server Pages), are correct?",
+        "options": [
+            "In order to access the application scope, we can use the predefined object servletContext",
+            "In a JSP page we can only use Java classes from java.lang and java.util",
+            "A JSP expression can be written either in Java or using expression language (EL)",
+            "JSP comments are included in the output sent to the client"
+        ],
+        "answer": 2,
+        "explanation": "JSP expressions can be written in Java or using Expression Language (EL), which simplifies the syntax and allows for cleaner integration with backend objects."
+    },
+    {
+        "question": "Considering the filter annotation below, what should be written in the blank space so that the invocation http://localhost:8080/App/quo is intercepted by the filter?",
+        "code_snippet": "@WebFilter(__________= {\"/quo\"})",
+        "options": [
+            "regex",
+            "urlPatterns",
+            "appliesTo",
+            "suffix"
+        ],
+        "answer": 1,
+        "explanation": "The `urlPatterns` attribute in the `@WebFilter` annotation specifies the URL patterns that the filter should intercept, such as `/quo` in this case."
+    },
+    {
+        "question": "Consider `em` as EntityManager object. What should be written in the blank space in order to obtain an entity corresponding to a primary key (generating an SQL SELECT)?",
+        "code_snippet": "int pk = 1;\nStudent student = em. _____(Student.class, pk);",
+        "options": [
+            "findById",
+            "find",
+            "read",
+            "lookup"
+        ],
+        "answer": 1,
+        "explanation": "The `find` method of the `EntityManager` is used to retrieve an entity by its primary key. It generates a SQL `SELECT` query under the hood."
+    },
+    {
+        "question": "A city belongs to a country. What is the short name of the JPA annotation that could be used in the Country class to map the association between the two?",
+        "code_snippet": "//In the Country class\n ______(mappedBy = \"country\" )\nprivate List<City> cities;",
+        "options": [
+            "@ManyToOne",
+            "@ManyToMany",
+            "@OneToOne",
+            "@OneToMany"
+        ],
+        "answer": 3,
+        "explanation": "The `@OneToMany` annotation is used to map a one-to-many relationship in JPA. In this case, a country has a list of cities, and the association is defined in the `City` entity."
+    },
+    {
+        "question": "In order to update a JPA entity (generating an SQL UPDATE), an EntityManager offers the following methods:",
+        "options": [
+            "update",
+            "saveOrUpdate",
+            "None of them",
+            "persistOrUpdate"
+        ],
+        "answer": 2,
+        "explanation": "JPA does not provide a direct `update` method. Updates are performed automatically when an entity is modified and the transaction is committed, as long as the entity is managed."
+    },
+    {
+        "question": "What is the short name of the JPA annotation that should be written in the blank space, in order to define a JPA listener that is invoked after an entity is deleted in the database?",
+        "code_snippet": "public class EntityLogger {\n_______\npublic void log(Object entity) {\n // Do something\n}\n}",
+        "options": [
+            "@AfterRemove",
+            "@PostDelete",
+            "@AfterEvict",
+            "@PostRemove"
+        ],
+        "answer": 3,
+        "explanation": "The `@PostRemove` annotation is used to define a JPA callback method that is invoked after an entity is removed from the database."
+    },
+    {
+        "question": "What JPA inheritance strategy addresses the situation in which there is one entity class for all the tables forming the hierarchy?",
+        "options": [
+            "Joined",
+            "Single Table",
+            "Mapped Superclass",
+            "Table Per Class"
+        ],
+        "answer": 1,
+        "explanation": "The `Single Table` strategy uses a single database table to store data for all the entity classes in the inheritance hierarchy, simplifying queries and ensuring better performance."
+    },
+    {
+        "question": "Which of the following parameters are usually configured for a connection pool:",
+        "options": [
+            "Connection validation methods",
+            "SQL Injection detection methods",
+            "Maximum number of clients that can simultaneously access the pool",
+            "Maximum number of transactions allowed"
+        ],
+        "answer": 0,
+        "explanation": "Connection pools often include parameters such as validation methods to check the validity of database connections before use, ensuring reliability and consistency."
+    },
+    {
+        "question": "What should be written in the blank space, in order to obtain a DataSource object, using JNDI?",
+        "code_snippet": "Context ctx = new InitialContext();\nDataSource ds = (DataSource)ctx._______(\"jdbc/sample\");",
+        "options": [
+            "lookup",
+            "findByName",
+            "query",
+            "lookFor"
+        ],
+        "answer": 0,
+        "explanation": "The `lookup` method of the `Context` object is used to retrieve a JNDI resource, such as a `DataSource`, by its name."
+    },
+    {
+        "question": "What should be written in the blank space, in order to have a JTA persistence unit that connects to the JDBC resource named \"simbaDB\"?",
+        "code_snippet": "<persistence>\n<persistence-unit name=\"MyPU\" transaction-type=\"JTA\">\n<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>\n<________>simbaDB</_______>\n</persistence-unit>\n</persistence>",
+        "options": [
+            "connection-pool",
+            "jta-resource",
+            "transactional",
+            "jta-data-source"
+        ],
+        "answer": 3,
+        "explanation": "The `jta-data-source` tag specifies the JNDI name of the JDBC resource that the JTA persistence unit should use to connect to the database."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define a page based on the base.xhtml template?",
+        "code_snippet": "<ui: _____ template = \"base.xhtml\"\nxmlns=\"http://www.w3.org/1999/xhtml\"\nxmlns:ui=\"http://java.sun.com/jsf/facelets\">",
+        "options": [
+            "compostition",
+            "extend",
+            "page",
+            "insert"
+        ],
+        "answer": 0,
+        "explanation": "The `composition` tag is used in JSF to define a Facelets template-based page. It specifies that the current page is built on a given template."
+    },
+    {
+        "question": "Which of the following statements, regarding naming services, are correct?",
+        "options": [
+            "A naming system is a set of naming contexts",
+            "The association of name with an object is called context",
+            "Retrieving an object based on its name is called binding",
+            "In any naming system, each object can have attributes, apart from its name"
+        ],
+        "answer": 0,
+        "explanation": "A naming system organizes resources into a hierarchy of naming contexts. Each context contains bindings that map names to objects."
+    },
+    {
+        "question": "A page that is created based on a template can provide data for the abstract parts of the template using the following Facelets UI tags:",
+        "options": [
+            "include",
+            "insert",
+            "define",
+            "import"
+        ],
+        "answer": 2,
+        "explanation": ""
+    },
+    {
+        "question": "Which of the following represent disadvantages of using the Database per Service pattern:",
+        "options": [
+            "Complex queries are slower to implement and execute",
+            "Lack of flexibility in DBMS choice",
+            "Lack of control regarding data invariants",
+            "Design time coupling is higher"
+        ],
+        "answer": 0,
+        "explanation": "In the Database per Service pattern, complex queries spanning multiple microservices are difficult to implement and can be slower due to the distributed nature of the databases."
+    },
+    {
+        "question": "What should be written in the blank space, in order to register a REST client at runtime, using CDI managed beans?",
+        "code_snippet": "_______(baseUri=\"https://localhost:8080/resources\")\n@ApplicationScoped\npublic interface Service {\n@GET @Path(\"/cats\")\nList<Sam> getCats();\n}\n",
+        "options": [
+            "@RegisterRestClient",
+            "@ClientBuilder",
+            "@RegisterResource",
+            "@Inject"
+        ],
+        "answer": 0,
+        "explanation": "The `@RegisterRestClient` annotation is used in MicroProfile to register a REST client at runtime and bind it to a specific base URI."
+    },
+    {
+        "question": "What should be written in the blank space, in order to create the controller of a microservice, with the specified URL pattern?",
+        "code_snippet": "_______(\"/hello\")\npublic class HelloController {\n@GET\npublic String sayHello() {\nreturn \"HelloWorld\";\n}\n}",
+        "options": [
+            "@Resource",
+            "@Path",
+            "@WebController",
+            "@MicroController"
+        ],
+        "answer": 1,
+        "explanation": "The `@Path` annotation in JAX-RS is used to define the base URL path for a resource class, making it accessible at the specified endpoint."
+    },
+    {
+        "question": "The standard Java API offers the following types for representing the result of an asynchronous computation:",
+        "options": [
+            "CompletableFuture",
+            "FuturePromise",
+            "CompletableResponse",
+            "AsyncScope"
+        ],
+        "answer": 0,
+        "explanation": "The `CompletableFuture` class in Java provides a way to represent asynchronous computations and allows chaining and combining of future results."
+    },
+    {
+        "question": "For a transactional method, what transaction type should be used (from TxType enum) in order to specify that an exception must be thrown if the invocation is done outside a transactional context",
+        "options": [
+            "MANDATORY",
+            "REQUIRES_NEW",
+            "SUPPORTS",
+            "SUPPORT_THROW"
+        ],
+        "answer": 0,
+        "explanation": "The `MANDATORY` transaction type ensures that the method must be invoked within an existing transaction context; otherwise, an exception is thrown."
+    },
+    {
+        "question": "Which of the following statements, regarding inversion of control (IoC) principle, are true?",
+        "options": [
+            "Implementations should depend upon abstractions",
+            "Implementations should depend upon other implementations",
+            "IoC containers rely on service locator pattern",
+            "IoC addresses finding object instances based on their attributes"
+        ],
+        "answer": 0,
+        "explanation": "The IoC principle encourages implementations to depend on abstractions rather than concrete classes, promoting flexibility and reducing coupling."
+    },
+    {
+        "question": "In order for a CDI bean to be referenced in a JSF page using EL, its class must be annotated with:",
+        "options": [
+            "@Page",
+            "None of them, it is by default available using the unqualified class name of the bean class, after converting the first character to lower case.",
+            "@Named",
+            "@Model"
+        ],
+        "answer": 2,
+        "explanation": "The `@Named` annotation makes a CDI bean accessible in JSF pages via Expression Language (EL) by registering the bean with a default name."
+    },
+    {
+        "question": "What should be written in the blank space, in order to obtain a reference to a TimerService object?",
+        "code_snippet": "@Stateless\npublic class TimerSessionBean {\n_______\n TimerService timerService;\n}\n",
+        "options": [
+            "@Inject",
+            "@Resource",
+            "@EJB",
+            "@Timer"
+        ],
+        "answer": 1,
+        "explanation": "The `@Resource` annotation is used to inject container-managed resources, such as a `TimerService`, into the EJB."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define an EJB interceptor method?",
+        "code_snippet": "@Stateful\npublic class Bean {\n________\npublic Object intercept(InvocationContext ctx) {\nreturn ctx.procees();\n}\n}",
+        "options": [
+            "@Trace",
+            "@Interceptor",
+            "@AroundInvoke",
+            "@Aspect"
+        ],
+        "answer": 2,
+        "explanation": "The `@AroundInvoke` annotation is used to define an interceptor method in EJB. It allows the interception of method calls for logging, security checks, or other concerns."
+    },
+    {
+        "question": "What should be written in the blank space, in order to prevent two clients to execute the setState method in the same time?",
+        "code_snippet": "@Singleton\n@ConcurrencyManagement(CONTAINER)\npublic class Bean {\nprivate String state;\n_______(WRITE)\npublic void setState(String state) {\nthis.state = state\n}\n}\n",
+        "options": [
+            "@Synchronized",
+            "@CyclicBarrier",
+            "@Lock",
+            "@concurrent"
+        ],
+        "answer": 2,
+        "explanation": "The `@Lock(WRITE)` annotation ensures that the method is locked in a write mode, preventing concurrent execution by multiple clients."
+    },
+    {
+        "question": "What should be written in the blank space, in order to obtain a reference to an Enterprise Java Bean instance?",
+        "code_snippet": "//In a JSF managed bean\n@SessionScoped\npublic class EarumBean { ______\nprivate UllamService service;\n}",
+        "options": [
+            "@Stateless",
+            "@Resource",
+            "@Service",
+            "@EJB"
+        ],
+        "answer": 3,
+        "explanation": "The `@EJB` annotation is used to inject an instance of an Enterprise Java Bean into a managed bean, such as a JSF bean."
+    },
+    {
+        "question": "When is EJB technology suitable to be used in an enterprise application?",
+        "options": [
+            "All the business logic is implemented at the Web layer",
+            "We need to implement JSF composite components",
+            "Transaction management is required to ensure data integrity",
+            "The back-end is implemented using REST services"
+        ],
+        "answer": 2,
+        "explanation": "EJB technology is ideal for scenarios requiring robust transaction management to ensure data consistency and integrity across multiple operations."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define an EJB method that starts a new transaction regardless of the context of the invocation?",
+        "code_snippet": "@TransactionAttribute(TransactionAttributeType._______)\npublic void method(){\n //Rest of the method\n}",
+        "options": [
+            "REQUIRED",
+            "REQUIRES_NEW",
+            "CONTEXT_FREE",
+            "MANDATORY"
+        ],
+        "answer": 1,
+        "explanation": "The `REQUIRES_NEW` transaction type ensures that the method always starts a new transaction, regardless of any existing transaction context."
+    },
+    {
+        "question": "What is the short name of the annotation that should be written in the blank space, in order to create a bean that integrates with JMS (Java Message Service)?",
+        "code_snippet": "_________\npublic class SamService { \n // Rest of the class \n }",
+        "options": [
+            "@Queue",
+            "@EJB",
+            "@MessageDriven",
+            "@Controller"
+        ],
+        "answer": 2,
+        "explanation": "The `@MessageDriven` annotation is used to create a message-driven bean (MDB) that listens to a JMS destination, enabling asynchronous message processing."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define an asynchronous method in a session EJB?",
+        "code_snippet": "@Asynchronous\n public ________<String> longRunningOperation() {\nRest of the method\n}",
+        "options": [
+            "Response",
+            "Future",
+            "Wait",
+            "Generic"
+        ],
+        "answer": 1,
+        "explanation": "The `Future` interface represents the result of an asynchronous computation. It is returned by methods annotated with `@Asynchronous` in EJBs."
+    },
+    {
+        "question": "Non-repudiation refers to:",
+        "options": [
+            "Evaluating the effectiveness of security policies",
+            "The users are who they say they are",
+            "The users have specific permissions",
+            "The transactions can be proved to have happened"
+        ],
+        "answer": 3,
+        "explanation": "Non-repudiation ensures that transactions can be proven to have occurred, providing a reliable way to verify actions for auditing and accountability."
+    },
+    {
+        "question": "Which of the following Java EE data types represents the identity of a user who is authenticated at the server level",
+        "options": [
+            "Realm",
+            "Subject",
+            "Principal",
+            "Person"
+        ],
+        "answer": 2,
+        "explanation": "The `Principal` interface in Java EE represents the identity of an authenticated user and provides access to the user's name and roles."
+    },
+    {
+        "question": "Securing a Web application refers to verifying:",
+        "options": [
+            "What kind of code is executed by the application, on the client machine?",
+            "Who wrote the code?",
+            "Who is accessing the application?",
+            "Where does the code come from?"
+        ],
+        "answer": 2,
+        "explanation": "Securing a web application focuses on verifying who is accessing the application through authentication and authorization mechanisms."
+    },
+    {
+        "question": "The common closure principle refers to:",
+        "options": [
+            "A service should implement a small set of functions",
+            "The team responsible for a service should have minimal collaboration with other teams",
+            "A service should not have multiple reasons to change",
+            "Each service encapsulates its implementation"
+        ],
+        "answer": 2,
+        "explanation": "The Common Closure Principle states that a service or module should not have multiple reasons to change, ensuring cohesive functionality and maintainability."
+    },
+    {
+        "question": "Which of the following communication types are usually found in microservice architectures?",
+        "options": [
+            "Shared attributes at session scope",
+            "Synchronous notifications",
+            "Synchronous request/response",
+            "Synchronous publish/subscribe"
+        ],
+        "answer": 2,
+        "explanation": "Synchronous request/response communication is commonly used in microservice architectures for direct service-to-service interactions."
+    },
+    {
+        "question": "A microservice should be:",
+        "options": [
+            "Cohesive, focusing on a single responsibility",
+            "Implemented as a singleton",
+            "Focused on all the aspects of a single business matter",
+            "Integrated with the other microservices"
+        ],
+        "answer": 0,
+        "explanation": "A microservice should be cohesive and focus on a single responsibility, adhering to the Single Responsibility Principle to ensure modularity and scalability."
+    },
+    {
+        "question": "What should be written in the blank space, in order to create the controller of a microservice, with the specified URL pattern?",
+        "code_snippet": "______(\"/hello\")\npublic class HelloController {\n @GET\npublic String sayHello() {\nreturn \"HelloWorld\";\n}\n}",
+        "options": [
+            "@Resource",
+            "@Path",
+            "@WebController",
+            "@MicroController"
+        ],
+        "answer": 1,
+        "explanation": "The `@Path` annotation in JAX-RS specifies the base URL for the resource class, making it accessible at the given endpoint."
+    },
+    {
+        "question": "What could be written in the empty space in order to specify that we want to have authentication based on an XHTML page:",
+        "code_snippet": "<login-config>\n<auth-method>_______</auth-method>\n<realm-name>myapp-realm</realm-name>\n<from-login-config>\n<form-login-page>/faces/login.xhtml</form-login-page>\n</form-login-config>\n</login-config>",
+        "options": [
+            "REALM",
+            "BASIC",
+            "PAGE",
+            "FORM"
+        ],
+        "answer": 3,
+        "explanation": "The `FORM` authentication method is used in Java EE to specify custom login pages for form-based authentication."
+    },
+    {
+        "question": "Java EE offers the following specification for creating Web services:",
+        "options": [
+            "JAX-WS: for SOAP-based services",
+            "EJB: for enterprise Web services",
+            "JSF: for service frameworks",
+            "JAX-MS: for microservices"
+        ],
+        "answer": 0,
+        "explanation": "JAX-WS (Java API for XML Web Services) is the standard specification in Java EE for creating SOAP-based web services."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define a JAX-RS method that returns a \"text/plain\" response?",
+        "code_snippet": "@Path(\"/dogs/lady\")\npublic class LadyResource {\n@GET\n________(MediaType.TEXT_PLAIN)\npublic String saySomething() {\nreturn \"Woof!\";\n}\n}",
+        "options": [
+            "@Type",
+            "@Envelope",
+            "@Produces",
+            "@Path"
+        ],
+        "answer": 2,
+        "explanation": "The `@Produces` annotation in JAX-RS specifies the MIME type of the response that a resource method produces, such as `MediaType.TEXT_PLAIN` for plain text."
+    },
+    {
+        "question": "What (idempotent) HTTP method should be used to create or replace if exists a resource, at a URL known by the client.",
+        "options": [
+            "GET",
+            "PUT",
+            "UPDATE",
+            "POST"
+        ],
+        "answer": 1,
+        "explanation": "The `PUT` HTTP method is idempotent and is used to create or replace a resource at a specified URL known to the client."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define a service that uses a URI path template?",
+        "code_snippet": "@Path(\"/hello/______\")\npublic class MyResource {\n@GET\npublic String hello(@PathParam(\"name\") String str) {\n return \"Hello \" + str; \n}\n}",
+        "options": [
+            "{name}",
+            "#{name}",
+            "<name>",
+            "(name)"
+        ],
+        "answer": 0,
+        "explanation": "In JAX-RS, `{name}` specifies a URI template variable that maps to the `@PathParam` annotation, allowing the variable value to be passed dynamically."
+    },
+    {
+        "question": "A JDBC resource named rem is defined, using the connection pool resource named mollitia. What should be written in the blank space, in order to inject a DataSource object?",
+        "code_snippet": "@Resource(mappedName = \"__________\")\nDataSource ds;",
+        "options": [
+            "rem",
+            "mollitia"
+        ],
+        "answer": 0,
+        "explanation": "The `mappedName` attribute in the `@Resource` annotation specifies the name of the JDBC resource to be injected. In this case, `rem` refers to the defined resource."
+    },
+    {
+        "question": "The communication between a client-stub and a server-stub in a Web service invocation is designed based on which pattern?",
+        "options": [
+            "Remote Proxy",
+            "Builder",
+            "Bridge",
+            "Factory Method"
+        ],
+        "answer": 0,
+        "explanation": "The Remote Proxy pattern is used in Web service invocations to facilitate communication between a client-stub and a server-stub. It allows method calls to be executed as if they were local, while being handled remotely."
+    },
+    {
+        "question": "Which protocol is used in order to describe the functionalities of a classical (\"big\") Web service?",
+        "options": [
+            "SOAP",
+            "UDDI",
+            "WSDL",
+            "RMI"
+        ],
+        "answer": 2,
+        "explanation": "WSDL (Web Services Description Language) is used to describe the functionalities of a classical ('big') Web service. It provides a standard XML format for defining service interfaces and operations."
+    },
+    {
+        "question": "What should be written in the blank space, in order to invoke a JAX-RS service?",
+        "code_snippet": "Product product = ________.newClient()\n    .target(\"http://localhost:8080/resources/products/1\")\n    .request(MediaType.APPLICATION_JSON)\n    .get(Product.class);",
+        "options": [
+            "HttpResponse",
+            "URLConnection",
+            "HttpBuilder",
+            "ClientBuilder"
+        ],
+        "answer": 3,
+        "explanation": "The `ClientBuilder` class is used to create a new `Client` instance for invoking JAX-RS services. It provides a fluent API for constructing requests and handling responses."
+    },
+    {
+        "question": "What should be written in the blank space in order to expose a method as a JAX-WS Web service?",
+        "code_snippet": "@________\npublic class Hello {\n    @WebMethod\n    public String sayHello(String name) {\n        return \"Hello \" + name + \"!\";\n    }\n}",
+        "options": [
+            "@WebService",
+            "@Service",
+            "@Path",
+            "@WebController"
+        ],
+        "answer": 0,
+        "explanation": "The `@WebService` annotation is used to declare a class as a JAX-WS Web Service. It exposes the class methods annotated with `@WebMethod` as web service operations."
+    },
+    {
+        "question": "The technique employed in order to create a JAX-RS Response uses the following design pattern:",
+        "options": [
+            "Builder",
+            "Singleton",
+            "Strategy",
+            "Prototype"
+        ],
+        "answer": 0,
+        "explanation": "The `Builder` design pattern is used in JAX-RS to construct `Response` objects step by step. It provides a flexible way to create immutable objects with complex configurations."
+    },
+    {
+        "question": "What should be written in the blank space, in order to obtain the property with the name \"key\" from microprofile-config.properties configuration file?",
+        "code_snippet": "@Inject\n__________ (name = \"key\")\nprivate String value;",
+        "options": [
+            "@ConfigProperty",
+            "@Resource",
+            "@ConfigKey",
+            "@Property"
+        ],
+        "answer": 0,
+        "explanation": "The `@ConfigProperty` annotation is used in MicroProfile to inject configuration properties defined in a `microprofile-config.properties` file. By specifying the `name` attribute, the property value can be injected into the field."
+    },
+    {
+        "question": "Which of the following communication types are usually found in microservice architectures?",
+        "options": [
+            "Synchronous publish/subscribe",
+            "Asynchronous publish/subscribe",
+            "Shared attributes at application scope",
+            "Synchronous notifications"
+        ],
+        "answer": 1,
+        "explanation": "Asynchronous publish/subscribe is commonly used in microservice architectures to decouple services, enabling them to communicate efficiently without direct dependencies or blocking calls."
+    },
+    {
+        "question": "What should be written in the blank space, in order to create the controller of a microservice, with the specified URL pattern?",
+        "code_snippet": "@__________(\"/hello\")\npublic class HelloController {\n    @GET\n    public String sayHello() {\n        return \"Hello World\";\n    }\n}",
+        "options": [
+            "@Resource",
+            "@Path",
+            "@WebController",
+            "@MicroController"
+        ],
+        "answer": 1,
+        "explanation": "The `@Path` annotation is used in JAX-RS to define the base URI for a resource class. It maps the URL pattern to the resource class, allowing it to handle requests sent to that path."
+    },
+    {
+        "question": "Which of the following methods are described by the javax.servlet.Filter interface?",
+        "options": [
+            "doFilter(ServletRequest req, ServletResponse res, FilterChain chain)",
+            "doFilter(FilterRequest req, FilterResponse res, FilterChain chain)",
+            "service(FilterRequest req, FilterResponse res, FilterChain chain)"
+        ],
+        "answer": 0,
+        "explanation": "The `doFilter` method is the core of the `Filter` interface. It processes requests and responses, allowing filters to transform or examine them before passing them along the chain."
+    },
+    {
+        "question": "Which of the following methods are described by the javax.servlet.Filter interface?",
+        "options": [
+            "doFilter(FilterRequest req, FilterResponse res, FilterChain chain)",
+            "destroy()",
+            "service(FilterRequest req, FilterResponse res, FilterChain chain)"
+        ],
+        "answer": 1,
+        "explanation": "The `destroy` method is part of the `Filter` lifecycle and is invoked by the container when the filter is taken out of service, allowing cleanup activities to be performed."
+    },
+    {
+        "question": "Which of the following statements, regarding web listeners, are correct?",
+        "options": [
+            "They respond to application lifecycle changes.",
+            "Each Web component can have multiple listeners attached, forming a listener chain.",
+            "All listeners have access to the request and response objects."
+        ],
+        "answer": 0,
+        "explanation": "Web listeners, such as `ServletContextListener`, can respond to application lifecycle changes like startup and shutdown, allowing developers to execute initialization or cleanup tasks."
+    },
+    {
+        "question": "Which of the following statements, regarding web listeners, are correct?",
+        "options": [
+            "Could be used in order to track Web sessions created or destroyed by the server.",
+            "Each Web component can have multiple listeners attached, forming a listener chain.",
+            "All listeners have access to the request and response objects."
+        ],
+        "answer": 0,
+        "explanation": "Web listeners, such as `HttpSessionListener`, are designed to track web sessions created or destroyed by the server, making it useful for session monitoring and management."
+    },
+    {
+        "question": "Each question addresses a set of topics. What should be written in the following JPQL query, in order to obtain the questions from a specific topic?",
+        "code_snippet": "select q from Question q ________ q.topics as t where t = :topic",
+        "options": [
+            "join",
+            "fetch",
+            "link",
+            "bind"
+        ],
+        "answer": 0,
+        "explanation": "The `join` keyword in JPQL is used to associate an entity with its related entities in a query, allowing the retrieval of questions that are related to a specific topic."
+    },
+    {
+        "question": "Rewrite the following JSP expression, using JSP expression language (EL):",
+        "code_snippet": "request.getHeader(\"user-agent\");",
+        "options": [
+            "${header[\"user-agent\"]}",
+            "${request.header[\"user-agent\"]}",
+            "${headers[\"user-agent\"]}",
+            "${header.get(\"user-agent\")}"
+        ],
+        "answer": 0,
+        "explanation": "The correct syntax to access the `user-agent` HTTP header using JSP Expression Language (EL) is `${header[\"user-agent\"]}`, which directly references the request header map."
+    },
+    {
+        "question": "What is the class name that should be written in both blank spaces, in order to have a valid Web listener class?",
+        "code_snippet": "public class UtListener implements ServletContextListener {\n public void contextInitialized(__________ event) {}\n public void contextDestroyed(__________ event) {}\n}",
+        "options": [
+            "ServletContextEvent",
+            "HttpServletEvent",
+            "ContextEvent",
+            "ServletEvent"
+        ],
+        "answer": 0,
+        "explanation": "The `ServletContextEvent` class is passed as a parameter to the methods of the `ServletContextListener` interface. It provides access to the `ServletContext` during initialization and destruction."
+    },
+    {
+        "question": "Which of the following statements, regarding JTA transactions, are correct?",
+        "options": [
+            "JTA demarcates transactions in a manner that is independent of the transaction manager implementation.",
+            "The user has to invoke commit or rollback for each container managed transaction.",
+            "A JTA transaction can operate on a single database.",
+        ],
+        "answer": 0,
+        "explanation": "JTA provides a standard way to manage transactions, abstracting the details of the transaction manager implementation to ensure independence and compatibility across systems."
+    },
+    {
+        "question": "Which of the following statements, regarding JTA transactions, are correct?",
+        "options": [
+            "The user has to invoke commit or rollback for each container managed transaction.",
+            "A JTA transaction can operate on a single database.",
+            "It is possible for the user to explicitly manage the transaction boundaries."
+        ],
+        "answer": 2,
+        "explanation": "JTA allows users to explicitly manage transaction boundaries by using the `UserTransaction` API, providing fine-grained control over transaction commit and rollback."
+    },
+    {
+        "question": "Consider em an EntityManager object. What should be written in the blank space in order to finish the transaction, assuming it is successful?",
+        "code_snippet": "em.getTransaction().begin();\n// Some operations\n// Everything is ok\nem.getTransaction().________();",
+        "options": [
+            "commit",
+            "close",
+            "complete",
+            "end"
+        ],
+        "answer": 0,
+        "explanation": "The `commit` method is called on the `EntityTransaction` object to successfully complete and persist the changes made during the transaction."
+    },
+    {
+        "question": "Consider em an EntityManager object. What should be written in the blank space in order to cancel the transaction, assuming something went wrong?",
+        "code_snippet": "em.getTransaction().begin();\n// Some operations\n// Something went wrong\nem.getTransaction().________();",
+        "options": [
+            "rollback",
+            "cancel",
+            "revert",
+            "abort"
+        ],
+        "answer": 0,
+        "explanation": "The `rollback` method is called on the `EntityTransaction` object to cancel the transaction and undo any changes made during the transaction."
+    },
+    {
+        "question": "Which of the following statements, regarding Java EE resources (objects injected via @Resource annotation), are correct?",
+        "options": [
+            "A messaging Queue is considered a resource.",
+            "A Web Filter is considered a resource.",
+            "Each resource has a unique uniform resource identifier (URI)."
+        ],
+        "answer": 0,
+        "explanation": "A messaging Queue, such as JMS Queue, is considered a resource and can be injected using the `@Resource` annotation in Java EE."
+    },
+    {
+        "question": "Which of the following statements, regarding Java EE resources (objects injected via @Resource annotation), are correct?",
+        "options": [
+            "A Web Filter is considered a resource.",
+            "A database DataSource is considered a resource.",
+            "Each resource has a unique uniform resource identifier (URI)."
+        ],
+        "answer": 1,
+        "explanation": "A database `DataSource` is considered a resource in Java EE and is commonly injected using the `@Resource` annotation to facilitate database connections."
+    },
+    {
+        "question": "Which of the following statements, regarding JNDI (Java Naming and Directory Interface), are correct?",
+        "options": [
+            "It allows server-side components to locate resources based on their names.",
+            "A JNDI bind operation must be performed before any lookup invocation.",
+            "A JNDI provider must offer at least a DataSource implementation.",
+        ],
+        "answer": 0,
+        "explanation": "JNDI enables server-side components to locate resources, such as databases or EJBs, using a naming system based on abstract names."
+    },
+    {
+        "question": "Which of the following statements, regarding JNDI (Java Naming and Directory Interface), are correct?",
+        "options": [
+            "A JNDI bind operation must be performed before any lookup invocation.",
+            "A JNDI provider must offer at least a DataSource implementation.",
+            "JNDI allows creating mappings between abstract names and Java objects, in a naming context."
+        ],
+        "answer": 2,
+        "explanation": "JNDI supports creating mappings between abstract names and Java objects in a naming context, facilitating the management and discovery of resources."
+    },
+    {
+        "question": "What should be written in the blank space, in order to add the following mapping to a JNDI context?",
+        "code_snippet": "Context context = new InitialContext();\nString name = \"Gracie\";\nDog dog = new Dog(name);\ncontext.________(name, dog);",
+        "options": [
+            "bind",
+            "set",
+            "map",
+            "link"
+        ],
+        "answer": 0,
+        "explanation": "The `bind` method is used to associate a name with an object in the JNDI context, enabling the object to be looked up using the specified name."
+    },
+    {
+        "question": "Which statements, regarding Facelets technology, are correct?",
+        "options": [
+            "Uses JSP for creating Web pages.",
+            "Offers support for creating pages from templates.",
+            "It is an alternative framework to Java Server Faces (JSF)."
+        ],
+        "answer": 1,
+        "explanation": "Facelets is the default view declaration language for Java Server Faces (JSF) and provides support for creating pages based on templates, simplifying web page development."
+    },
+    {
+        "question": "Which statements, regarding Facelets technology, are correct?",
+        "options": [
+            "Uses JSP for creating Web pages.",
+            "Offers support for creating composite components.",
+            "It is an alternative framework to Java Server Faces (JSF)."
+        ],
+        "answer": 1,
+        "explanation": "Facelets allows developers to create composite components, which are reusable UI components that can be used across different parts of the application."
+    },
+    {
+        "question": "Which of the following application concerns could be considered aspects?",
+        "options": [
+            "Messaging",
+            "Security",
+            "Connection pooling",
+            "Tracing"
+        ],
+        "answer": 1,
+        "explanation": "Security is a cross-cutting concern because it applies to multiple layers of an application, such as authentication and authorization, without being tied to its business logic."
+    },
+    {
+        "question": "Which of the following application concerns could be considered aspects?",
+        "options": [
+            "Messaging",
+            "Connection pooling",
+            "Tracing"
+        ],
+        "answer": 2,
+        "explanation": "Tracing is a cross-cutting concern because it involves monitoring and logging application behavior across various components, separate from the business logic."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define a CDI interceptor?",
+        "code_snippet": "@Interceptor\npublic class MyInterceptor implements Serializable {\n    @AroundInvoke\n    public Object log(__________ ctx) {\n        return ctx.proceed();\n    }\n}",
+        "options": [
+            "InvocationContext",
+            "InterceptorContext",
+            "ContextObject",
+            "InterceptContext"
+        ],
+        "answer": 0,
+        "explanation": "The `InvocationContext` interface provides metadata about the invocation of a business method or lifecycle callback, allowing the interceptor to access method parameters, proceed with the invocation, or handle the result."
+    },
+    {
+        "question": "What should be written in the blank space, in order to declaratively control transaction boundaries on a CDI bean method?",
+        "code_snippet": "@RequestScoped\npublic class MyCDIBean {\n    @PersistenceContext EntityManager em;\n\n    _________\n    public void persist(Object obj) {\n        em.persist(obj);\n    }\n}",
+        "options": [
+            "@Transactional",
+            "@TransactionScoped",
+            "@TransactionManager",
+            "@TransactionBound"
+        ],
+        "answer": 0,
+        "explanation": "The `@Transactional` annotation is used to declaratively manage transactions in CDI beans. It ensures that the `persist` method is executed within a transactional context, handling commit or rollback as needed."
+    },
+    {
+        "question": "The ScooterImpl implements the Scooter interface. What should be written in the blank space in order to obtain an object of type ScooterImpl?",
+        "code_snippet": "public class ScooterService {\n    _________ Scooter scooter;\n}",
+        "options": [
+            "@Inject",
+            "@Autowired",
+            "@Resource",
+            "@Provide"
+        ],
+        "answer": 0,
+        "explanation": "The `@Inject` annotation is used in CDI (Contexts and Dependency Injection) to automatically inject a dependency of type `ScooterImpl` into the `Scooter` field at runtime."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define two implementations of a bean type and choose at deployment time (specified in beans.xml) which one will be used?",
+        "code_snippet": "_________\nclass CharlieImpl implements Pettable {\n    // Rest of the class\n}\n\n_________\nclass LilyImpl implements Pettable {\n    // Rest of the class\n}",
+        "options": [
+            "@Alternative",
+            "@Qualifier",
+            "@Inject",
+            "@Produces"
+        ],
+        "answer": 0,
+        "explanation": "The `@Alternative` annotation is used to define alternative implementations of a bean type. At deployment time, the specific implementation can be chosen by enabling the corresponding alternative in the `beans.xml` descriptor."
+    },
+    {
+        "question": "What should be written in the blank space, in order to define a method that will be a source of bean instances, and it will be used like this @Inject @Random int number;?",
+        "code_snippet": "__________\n@Random int getRandomNumber() {\n    return new Random().nextInt(100);\n}",
+        "options": [
+            "@Produces",
+            "@Provider",
+            "@Factory",
+            "@Supplier"
+        ],
+        "answer": 0,
+        "explanation": "The `@Produces` annotation is used in CDI to define a producer method, which is responsible for creating and providing an instance of a bean. The method annotated with `@Produces` is invoked whenever the bean is injected into another component"
+    },
+    {
+        "question": "Which of the following statements, regarding EJB container-managed transactions, are correct?",
+        "options": [
+            "An EJB method participates in a transaction if it is annotated with @Transactional.",
+            "The container commits the transaction just before the method exits.",
+            "When a checked exception is thrown, the container will automatically rollback the transaction."
+        ],
+        "answer": 1,
+        "explanations": "The EJB container automatically commits the transaction just before the method exits if the transaction completes successfully, ensuring proper transactional closure."
+    },
+    {
+        "question": "Which of the following statements, regarding EJB container-managed transactions, are correct?",
+        "options": [
+            "An EJB method participates in a transaction if it is annotated with @Transactional.",
+            "The EJB container sets by default the boundaries of the transactions.",
+            "When a checked exception is thrown, the container will automatically rollback the transaction."
+        ],
+        "answer": 1,
+        "explanations": "By default, the EJB container manages the boundaries of the transactions, allowing developers to focus on business logic while the container handles transaction demarcation."
+    }
 ]
