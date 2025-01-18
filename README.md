@@ -56,24 +56,26 @@ quiz-app/
 1. Open the `questions.json` file.
 2. Add new questions in the following format:
    ```json
-   [
-     {
-       "question": "What does HTML stand for?",
-       "code_snippet": "Example of usage",
-       "options": [
-         "Hyper Text Markup Language",
-         "High Text Machine Language",
-         "Hyper Tool Markup Language",
-         "None of the above"
-       ],
-       "answer": 0
-     }
-   ]
+  [
+    {
+      "question": "What does HTML stand for?",
+      "code_snippet": "Example of usage",
+      "options": [
+        "Hyper Text Markup Language",
+        "High Text Machine Language",
+        "Hyper Tool Markup Language",
+        "None of the above"
+      ],
+      "answer": 0,
+      "explanation": "HTML stands for Hyper Text Markup Language, which is the standard language used to create and design web pages."
+    }
+  ]
    ```
    - `question`: The question text.
    - `options`: An array of answer choices.
    - `code_snippet`: An optional tag if your question requires code snippets.
    - `answer`: The index of the correct answer in the `options` array (0-based).
+   - `explanation`: A brief explanation of why the selected answer is correct.
 
 ### Styling
 
