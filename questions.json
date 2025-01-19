@@ -4142,7 +4142,7 @@
         "options": [
             "JTA demarcates transactions in a manner that is independent of the transaction manager implementation.",
             "The user has to invoke commit or rollback for each container managed transaction.",
-            "A JTA transaction can operate on a single database.",
+            "A JTA transaction can operate on a single database."
         ],
         "answer": 0,
         "explanation": "JTA provides a standard way to manage transactions, abstracting the details of the transaction manager implementation to ensure independence and compatibility across systems."
