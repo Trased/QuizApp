@@ -4206,7 +4206,7 @@
         "options": [
             "It allows server-side components to locate resources based on their names.",
             "A JNDI bind operation must be performed before any lookup invocation.",
-            "A JNDI provider must offer at least a DataSource implementation.",
+            "A JNDI provider must offer at least a DataSource implementation."
         ],
         "answer": 0,
         "explanation": "JNDI enables server-side components to locate resources, such as databases or EJBs, using a naming system based on abstract names."
