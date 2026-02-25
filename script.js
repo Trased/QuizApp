@@ -3,24 +3,94 @@ let score = 0;
 let wrongAnswers = 0;
 let questions = [];
 let maxQuestions = 0;
-const wrongQuestions = [];
 
-fetch('questions.json')
-  .then((response) => response.json())
-  .then((data) => {
-    questions = data;
-    document.getElementById('start-button').addEventListener('click', setupQuiz);
-  });
+const DATASET_DEFAULT = 'idm-questions.json';
+
+const els = {
+  datasetSelect: document.getElementById('dataset-select'),
+  loadBtn: document.getElementById('load-button'),
+  datasetStatus: document.getElementById('dataset-status'),
+  startBtn: document.getElementById('start-button'),
+  loadHint: document.getElementById('load-hint'),
+
+  home: document.getElementById('home'),
+  quiz: document.getElementById('quiz'),
+  result: document.getElementById('result'),
+
+  question: document.getElementById('question'),
+  codeSnippet: document.getElementById('code-snippet'),
+  options: document.getElementById('options'),
+  explanation: document.getElementById('explanation-display'),
+  nextBtn: document.getElementById('next-button'),
+
+  scoreCurrent: document.getElementById('score_current'),
+  scoreFinal: document.getElementById('score_final'),
+  restartBtn: document.getElementById('restart-button'),
+  questionCount: document.getElementById('question-count'),
+  startPanel: document.getElementById('start-panel'),
+  loadPanel: document.getElementById('load-panel'),
+};
+
+function normalizeQuestions(raw) {
+  // Acceptă:
+  // - array direct: [{question, options, answer, ...}]
+  // - sau obiect cu .tests etc (în caz că ai alt export)
+  let arr = Array.isArray(raw) ? raw : (raw?.questions || []);
+  arr = arr.filter(q =>
+    q &&
+    typeof q.question === 'string' &&
+    Array.isArray(q.options) &&
+    q.options.length >= 2 &&
+    Number.isInteger(q.answer) &&
+    q.answer >= 0 &&
+    q.answer < q.options.length
+  );
+  return arr;
+}
+
+async function loadDataset(fileName) {
+  els.startBtn.disabled = true;
+  els.loadHint.textContent = 'Loading…';
+  els.datasetStatus.textContent = `Dataset: ${fileName} (loading…)`;
+
+  const res = await fetch(fileName, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Failed to load ${fileName} (${res.status})`);
+
+  const data = await res.json();
+  const normalized = normalizeQuestions(data);
+
+  if (normalized.length === 0) {
+    throw new Error(`No valid questions found in ${fileName}.`);
+  }
+
+  questions = normalized;
+
+  els.questionCount.max = String(questions.length);
+  if (!els.questionCount.value) els.questionCount.value = String(Math.min(10, questions.length));
+
+  els.datasetStatus.textContent = `Dataset: ${fileName} (${questions.length} întrebări)`;
+  els.loadHint.textContent = `Loaded: ${questions.length} întrebări.`;
+
+  els.startPanel.classList.remove('hidden');
+  els.loadPanel.classList.add('hidden');
+
+  els.startBtn.disabled = false;
+}
 
 function setupQuiz() {
-  const questionInput = prompt('Enter the number of questions you want to answer:');
-  maxQuestions = parseInt(questionInput);
+  const raw = (els.questionCount.value || '').trim();
 
-  if (isNaN(maxQuestions) || maxQuestions <= 0 || maxQuestions > questions.length) {
-    alert(`Please enter a valid number between 1 and ${questions.length}.`);
+  // default: dacă nu completează, facem 10 (sau ce vrei)
+  let n = raw ? parseInt(raw, 10) : 10;
+
+  if (!Number.isInteger(n) || n <= 0) {
+    els.loadHint.textContent = 'Te rog introdu un număr valid de întrebări (>=1).';
     return;
   }
 
+  if (n > questions.length) n = questions.length;
+
+  maxQuestions = n;
   startQuiz();
 }
 
@@ -28,10 +98,12 @@ function startQuiz() {
   currentQuestion = 0;
   score = 0;
   wrongAnswers = 0;
-  wrongQuestions.length = 0;
-  document.getElementById('home').classList.add('hidden');
-  document.getElementById('quiz').classList.remove('hidden');
-  document.getElementById('score_current').innerHTML = `Correct: <strong>0</strong>, Wrong: <strong>0</strong>`;
+
+  els.home.classList.add('hidden');
+  els.result.classList.add('hidden');
+  els.quiz.classList.remove('hidden');
+
+  els.scoreCurrent.innerHTML = `Correct: <strong>0</strong>, Wrong: <strong>0</strong>`;
   displayQuestion();
 }
 
@@ -43,19 +115,10 @@ function shuffleArray(array) {
 }
 
 function displayQuestion() {
-  const questionElement = document.getElementById('question');
-  const codeSnippetElement = document.getElementById('code-snippet');
-  const optionsElement = document.getElementById('options');
-  const feedbackElement = document.createElement('div');
-  const nextButton = document.getElementById('next-button');
-  const explanationElement = document.getElementById('explanation-display');
+  els.explanation.classList.add('hidden');
+  els.nextBtn.classList.add('hidden');
 
-  explanationElement.classList.add('hidden');
-
-  feedbackElement.id = 'feedback';
-
-  nextButton.classList.add('hidden');
-
+  // random question (cum ai acum) :contentReference[oaicite:3]{index=3}
   const randomIndex = Math.floor(Math.random() * questions.length);
   const question = questions[randomIndex];
 
@@ -66,74 +129,75 @@ function displayQuestion() {
 
   const correctIndexAfterShuffle = options.indexOf(correctAnswerValue);
 
-  questionElement.textContent = question.question;
-  optionsElement.innerHTML = '';
+  els.question.textContent = question.question;
+  els.options.innerHTML = '';
 
   if (question.code_snippet) {
-    codeSnippetElement.classList.remove('hidden');
-    codeSnippetElement.textContent = question.code_snippet;
+    els.codeSnippet.classList.remove('hidden');
+    els.codeSnippet.textContent = question.code_snippet;
   } else {
-    codeSnippetElement.classList.add('hidden');
-    codeSnippetElement.textContent = '';
+    els.codeSnippet.classList.add('hidden');
+    els.codeSnippet.textContent = '';
   }
-  
+
+  const feedback = document.createElement('div');
+  feedback.id = 'feedback';
+  feedback.className = 'feedback hidden';
+  feedback.textContent = '';
+  feedback.removeAttribute('data-type');
+
   options.forEach((option, newIndex) => {
-    const button = document.createElement('button');
-    button.textContent = option;
-    button.classList.add('option-button');
-    button.addEventListener('click', () =>
-      handleAnswer(newIndex === correctIndexAfterShuffle, button, feedbackElement, correctIndexAfterShuffle, question)
-    );
-    optionsElement.appendChild(button);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = option;
+    btn.classList.add('option-button');
+    btn.addEventListener('click', () => handleAnswer(newIndex === correctIndexAfterShuffle, btn, feedback, correctIndexAfterShuffle, question));
+    els.options.appendChild(btn);
   });
 
-  if (!document.getElementById('feedback')) {
-    optionsElement.appendChild(feedbackElement);
-  }
+  els.options.appendChild(feedback);
 }
 
-function handleAnswer(isCorrect, button, feedbackElement, index, question) {
-  const allOptions = document.querySelectorAll('.option-button');
-  const explanationElement = document.getElementById('explanation-display');
-
-  allOptions.forEach((btn) => btn.disabled = true);
+function handleAnswer(isCorrect, clickedButton, feedbackEl, correctIndexAfterShuffle, question) {
+  const allButtons = document.querySelectorAll('.option-button');
+  allButtons.forEach((b) => b.disabled = true);
 
   if (isCorrect) {
     score++;
-    button.classList.add('correct');
-    feedbackElement.textContent = 'Correct!';
-    feedbackElement.style.color = 'green';
+    clickedButton.classList.add('correct');
+    feedbackEl.textContent = 'Corect!';
+    feedbackEl.dataset.type = 'ok';
   } else {
     wrongAnswers++;
-    button.classList.add('wrong');
-    feedbackElement.textContent = 'Wrong! The correct answer was highlighted.';
-    feedbackElement.style.color = 'red';
-
-    allOptions[index].classList.add('correct');
+    clickedButton.classList.add('wrong');
+    feedbackEl.textContent = 'Greșit. Răspunsul corect a fost evidențiat.';
+    feedbackEl.dataset.type = 'bad';
+    allButtons[correctIndexAfterShuffle]?.classList.add('correct');
   }
 
-  explanationElement.textContent = `${question.explanation}`;
-  explanationElement.classList.remove('hidden');
+  els.scoreCurrent.innerHTML = `Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong>`;
 
-  document.getElementById('score_current').innerHTML = `Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong>`;
+  // ✅ Explanation doar dacă există
+  if (question.explanation) {
+    els.explanation.textContent = question.explanation;
+    els.explanation.classList.remove('hidden');
+  } else {
+    els.explanation.classList.add('hidden');
+    els.explanation.textContent = '';
+  }
 
-  const nextButton = document.getElementById('next-button');
-  nextButton.classList.remove('hidden');
-  nextButton.onclick = () => {
+  els.nextBtn.classList.remove('hidden');
+  els.nextBtn.onclick = () => {
     currentQuestion++;
-    if (currentQuestion < maxQuestions) {
-      displayQuestion();
-    } else {
-      showResults();
-    }
+    if (currentQuestion < maxQuestions) displayQuestion();
+    else showResults();
   };
 }
 
 function showResults() {
-  document.getElementById('quiz').classList.add('hidden');
-  document.getElementById('result').classList.remove('hidden');
-  document.getElementById('score_final').innerHTML = `Final Score: Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong> out of <strong>${maxQuestions}</strong>`;
-  document.getElementById('restart-button').onclick = restartQuiz;
+  els.quiz.classList.add('hidden');
+  els.result.classList.remove('hidden');
+  els.scoreFinal.innerHTML = `Final Score: Correct: <strong>${score}</strong>, Wrong: <strong>${wrongAnswers}</strong> out of <strong>${maxQuestions}</strong>`;
 }
 
 function restartQuiz() {
@@ -141,6 +205,32 @@ function restartQuiz() {
   score = 0;
   wrongAnswers = 0;
   maxQuestions = 0;
-  document.getElementById('result').classList.add('hidden');
-  document.getElementById('home').classList.remove('hidden');
+
+  els.result.classList.add('hidden');
+  els.quiz.classList.add('hidden');
+  els.home.classList.remove('hidden');
+  els.home.loadPanel.classList.remove('hidden');
+  els.startPanel.classList.add('hidden');
+  els.loadPanel.classList.remove('hidden');
 }
+
+// Wire UI
+els.startBtn.addEventListener('click', setupQuiz);
+els.restartBtn.addEventListener('click', restartQuiz);
+
+els.loadBtn.addEventListener('click', async () => {
+  try {
+    await loadDataset(els.datasetSelect.value);
+  } catch (e) {
+    console.error(e);
+    els.datasetStatus.textContent = `Dataset: error`;
+    els.loadHint.textContent = `Eroare: ${e.message}`;
+    els.startBtn.disabled = true;
+    els.startPanel.classList.add('hidden');
+
+  }
+});
+
+// Auto-select default + show
+els.datasetSelect.value = DATASET_DEFAULT;
+els.datasetStatus.textContent = `Dataset: ${DATASET_DEFAULT} (not loaded)`;
