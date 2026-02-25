@@ -1,38 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app">
-    <!-- Home Screen -->
-    <div id="home" class="screen">
-      <h1>Welcome to the Quiz App</h1>
-      <p>Test your knowledge by answering quiz questions!</p>
-      <button id="start-button">Start Quiz</button>
-    </div>
-
-    <!-- Quiz Screen -->
-    <div id="quiz" class="screen hidden"> 
-      <h2 id="question">Question</h2>
-      <div id="code-snippet" class="hidden"></div>
-      <div id="options"></div>
-      <button id="next-button" class="hidden">Next</button>
-      <div id="score-display"> 
-        <p id="score_current">Correct: <strong>0</strong>, Wrong: <strong>0</strong></p>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">Q</div>
+        <div>
+          <div class="title">Quiz</div>
+          <div class="subtitle" id="dataset-status">Dataset: —</div>
+        </div>
       </div>
-      <div id="explanation-display" class="hidden"></div>
-    </div>
+    </header>
 
-    <!-- Result Screen -->
-    <div id="result" class="screen hidden">
-      <h1>Quiz Results</h1>
-      <p id="score_final">Final Score: Correct: <strong>0</strong>, Wrong: <strong>0</strong></p>
-      <button id="restart-button">Restart Quiz</button>
-    </div>
+    <main class="container">
+      <!-- HOME -->
+      <section id="home" class="card">
+        <h1>Start</h1>
+        <p class="muted">
+          Alege setul de întrebări, apasă <strong>Load</strong>, apoi <strong>Start Quiz</strong>.
+        </p>
+        <div class="stack">
+        <div id="load-panel"class="card-inner">
+          <h2 class="section-title">Alege setul de întrebări</h2>
+
+          <div class="home-actions">
+            <label class="field" style="min-width:260px;">
+              <span>Set întrebări</span>
+              <select id="dataset-select">
+                <option value="idm-questions.json">IDM (idm-questions.json)</option>
+                <option value="java-questions.json">Java (java-questions.json)</option>
+              </select>
+            </label>
+
+            <button id="load-button" class="btn btn-primary">Load</button>
+          </div>
+
+          <div id="load-hint" class="hint">Selectează un dataset și apasă Load.</div>
+        </div>
+
+        <div id="start-panel" class="card-inner hidden">
+          <h2 class="section-title">Start</h2>
+
+          <div class="home-actions">
+            <label class="field" style="min-width:220px;">
+              <span>Număr întrebări</span>
+              <input id="question-count" type="number" min="1" step="1" placeholder="ex: 20" />
+            </label>
+
+            <button id="start-button" class="btn btn-secondary" disabled>Start Quiz</button>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- QUIZ -->
+      <section id="quiz" class="card hidden">
+        <div class="meta">
+          <div id="score_current" class="pill">Correct: <strong>0</strong>, Wrong: <strong>0</strong></div>
+        </div>
+
+        <h2 id="question" class="question"></h2>
+
+        <pre id="code-snippet" class="code hidden"></pre>
+
+        <div id="options" class="options"></div>
+
+        <div id="explanation-display" class="explanation hidden"></div>
+
+        <div class="nav">
+          <button id="next-button" class="btn btn-secondary hidden">Next</button>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section id="result" class="card hidden">
+        <h2>Rezultat</h2>
+        <div id="score_final" class="result"></div>
+        <button id="restart-button" class="btn btn-primary">Restart</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="muted">Tip: poți schimba dataset-ul oricând, apoi “Restart”.</span>
+    </footer>
   </div>
 
   <script src="script.js"></script>
